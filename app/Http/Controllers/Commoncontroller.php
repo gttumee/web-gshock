@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Watchs;
 use Illuminate\Http\Request;
 
 class Commoncontroller extends Controller
@@ -11,7 +12,8 @@ class Commoncontroller extends Controller
         return view('index');
     }
     public function shop(){
-        return view('shop');
+        $shopall = Watchs::paginate(15);
+        return view('shop',compact('shopall'));
     }
     
     public function about(){
@@ -36,7 +38,6 @@ class Commoncontroller extends Controller
             }
         else
             {
-            
             return view('contact'); 
             }
     }

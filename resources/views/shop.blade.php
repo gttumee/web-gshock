@@ -35,9 +35,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Бүгд</a>
-                            </li>
+                                <li class="list-inline-item">
+                                    <a class="h3 text-dark text-decoration-none mr-3">Бүгд</a>
+                                </li>
                             <li class="list-inline-item">
                                 <a class="h3 text-dark text-decoration-none mr-3" href="#">Эрэгтэй</a>
                             </li>
@@ -56,19 +56,21 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="row">
+                    @foreach ($shopall as $item)
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <a href="/shopdetail"><img class="card-img rounded-0 img-fluid" src="assets/img/shop_01.jpg"></a>
+                                <a href="/shopdetail"><img class="card-img rounded-0 img-fluid" src="assets/img/GW-B5600CT-1_l.png"></a>
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <a href="shop-single.html" class="h3 text-decoration-none">{{$item->name}}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>M/L/X/XL</li>
+                                    <li>{{$item->brand}}</li>
                                     <li class="pt-2">
                                         <span
                                             class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -82,41 +84,17 @@
                                             class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$250.00</p>
+                                <p class="text-center mb-0">₮{{$item->price}}</p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#"
-                                tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
-                                href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                        </li>
-                    </ul>
-                </div>
+                {{ $shopall->links('pagination::bootstrap-4') }}
             </div>
-
         </div>
     </div>
     <!-- End Content -->
-
     <!-- Start Brands -->
     <section class="bg-light py-5">
         <div class="container my-4">
