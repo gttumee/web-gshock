@@ -20,8 +20,11 @@ class Commoncontroller extends Controller
         return view('about');
     }
     
-    public function shopdetail(){
-        return view('shopdetail');
+    //цагны дэлгэрэнгүй мэдээлэл гарах хэсэг
+    public function shopdetail($id){
+        $shopDetailWatch = Watchs::where('id','=',$id)->first();
+        $shopDetailWatchRelated = Watchs::orderByDesc('updated_at')->paginate(5);
+        return view('shopdetail',compact('shopDetailWatch','shopDetailWatchRelated'));
     }
 
     // холбоо барих хэсэгийг мэдээлэл хадаглах
