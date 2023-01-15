@@ -11,12 +11,12 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Төрөл
+                            Баттери төрөл
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Эрэгтэй</a></li>
-                            <li><a class="text-decoration-none" href="#">Эмэгтэй</a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['type=MasterCard'])}}">Баттери </a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['type=Visa'])}}">Нарны зай хураагуур</a></li>
                         </ul>
                     </li>
                     <li class="pb-3">
@@ -25,8 +25,8 @@
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Аналог</a></li>
-                            <li><a class="text-decoration-none" href="#">Дижитал</a></li>
+                            <li><a class="text-decoration-none"  href="{{route('shop',['types=North'])}}">Аналог</a></li>
+                            <li><a class="text-decoration-none"  href="{{route('shop',['types=South'])}}">Дижитал</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -36,22 +36,30 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                                 <li class="list-inline-item">
-                                    <a class="h3 text-dark text-decoration-none mr-3">Бүгд</a>
+                                    <a class="h3 text-dark text-decoration-none mr-3"  href="{{route('shop')}}">Бүгд</a>
                                 </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Эрэгтэй</a>
+                                <a class="h3 text-dark text-decoration-none mr-3" href="{{route('shop',['type=Visa'])}}">Эрэгтэй</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">Эмэгтэй</a>
+                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=MasterCard'])}}">Эмэгтэй</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 pb-4">
+                    <div class="col-md-4 pb-3">
+                    <form accept="get" action="{{ route('shop') }}" >
+                   <div class="input-group">
+                    <input type="search" class="form-control rounded" placeholder="хайх" aria-label="хайлт" aria-describedby="search-addon" name="search"/>
+                    <button type="submit" class="btn btn-success btn-lg px-3"><i class="fas fa-search"></i></button>
+                    </div>
+                    </form>
+                    </div>
+                    <div class="col-md-2 pb-3">
                         <div class="d-flex">
                             <select class="form-control">
                                 <option>Эрэмбэлэх</option>
-                                <option>Үнээр</option>
-                                <option>Нэрээр</option>
+                                <option value="{{ route('shop',['sort=desc'])}}" onchange="window.location.href=this.value;">Үнэ өсөхөөр</option>
+                                <option value="{{ route('shop',['sort=asc'])}}" onchange="window.location.href=this.value;">Үнэ буурхаар</option>
                             </select>
                         </div>
                     </div>
@@ -197,7 +205,6 @@
                             </div>
                         </div>
                         <!--End Carousel Wrapper-->
-
                         <!--Controls-->
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
@@ -210,6 +217,5 @@
             </div>
         </div>
     </section>
-
 @endsection
 @include('layout.footer')

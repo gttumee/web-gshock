@@ -31,11 +31,11 @@
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
+                            <img class="img-fluid" src="./assets/img/banner_img_01.png" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Zay</b> eCommerce</h1>
+                                <h1 class="h1 text-success"><b>G-shock 5400</b> Шинэ загвар</h1>
                                 <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
                                 <p>
                                     Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta
@@ -58,7 +58,7 @@
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                            <img class="img-fluid" src="./assets/img/banner_img_02.png" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
@@ -140,14 +140,16 @@
         <div class="container py-5">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Шинэ загварууд</h1>
+                    <h1 class="h1">Хамгийн их захиалагдсан</h1>
                 </div>
             </div>
             <div class="row">
+                @foreach($shopDetailWatchRelated as $items)
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="./assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                            <a href="{{ route('shopdetail', ['id'=>$items->id]) }}">
+                            <img src="./assets/img/feature_prod_01.png" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
@@ -158,17 +160,18 @@
                                     <i class="text-muted fa fa-star"></i>
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
-                                <li class="text-muted text-right">$240.00</li>
+                                <li class="text-muted text-right">{{$items->price}}</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{$items->name}}</a>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
-                                deserunt.
+                                {{$items->text}}
                             </p>
                             <p class="text-muted">Reviews (24)</p>
                         </div>
                     </div>
                 </div>
+                @endforeach
+
             </div>
         </div>
     </section>

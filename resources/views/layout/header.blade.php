@@ -83,13 +83,13 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="{{route('index')}}">Эхлэл</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about')}}">G-Shock түүх</a>
+                            <a class="nav-link" href="{{route('history')}}">G-Shock түүх</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about')}}">G-Shock технологи</a>
+                            <a class="nav-link" href="{{route('technology')}}">G-Shock технологи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about')}}">Миний G-Shock </a>
+                            <a class="nav-link" href="{{route('mygshock')}}">Миний G-Shock </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('shop')}}">Дэлгүүр</a>

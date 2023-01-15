@@ -18,7 +18,10 @@ Route::get('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::post('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::get('/shop',  [Commoncontroller::class, 'shop'])->name('shop');
 Route::get('/about',  [Commoncontroller::class, 'about'])->name('about');
-Route::get('/shopdetail{id}',  [Commoncontroller::class, 'shopdetail'])->name('shopdetail');
+Route::get('/history',  [Commoncontroller::class, 'history'])->name('history');
+Route::get('/technology',  [Commoncontroller::class, 'technology'])->name('technology');
+Route::get('/mygshock',  [Commoncontroller::class, 'mygshock'])->name('mygshock');
+Route::get('/shopdetail',  [Commoncontroller::class, 'shopdetail'])->name('shopdetail');
 
 Route::get('/', function () {
     return view('welcome');

@@ -35,12 +35,12 @@
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Цэс</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Эхлэл</a></li>
-                    <li><a class="text-decoration-none" href="#">G-Shock түүх</a></li>
-                    <li><a class="text-decoration-none" href="#">G-Shock технологи</a></li>
-                    <li><a class="text-decoration-none" href="#">Миний G-Shock</a></li>
-                    <li><a class="text-decoration-none" href="#">Дэлгүүр</a></li>
-                    <li><a class="text-decoration-none" href="#">Холбоо барих</a></li>
+                    <li><a class="text-decoration-none" href={{route('index')}}>Эхлэл</a></li>
+                    <li><a class="text-decoration-none" href={{route('about')}}>G-Shock түүх</a></li>
+                    <li><a class="text-decoration-none" href={{route('about')}}>G-Shock технологи</a></li>
+                    <li><a class="text-decoration-none" href={{route('about')}}>Миний G-Shock</a></li>
+                    <li><a class="text-decoration-none" href="{{route('shop')}}">Дэлгүүр</a></li>
+                    <li><a class="text-decoration-none" href="{{route('contact')}}">Холбоо барих</a></li>
                 </ul>
             </div>
 
