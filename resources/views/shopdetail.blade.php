@@ -165,12 +165,11 @@
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Захиалах</button>
+                                        {{-- <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Захиалах</button> --}}
+                                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModalCenter">Захиалга</button>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                  Захиалга
-                                  </button>
+                               
                                    <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -181,16 +180,18 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             </div>
-                                            <div class="modal-body form-group col-md-8 mb-1">
-                                                Үнэ:<p>{{$shopDetailWatch->name}}</p>
-                                                <p>{{$shopDetailWatch->price}}</p>
-                                                <p>{{$shopDetailWatch->brand}}</p>
-                                                <p>{{$shopDetailWatch->name.Str::random(10);}}</p>
-                                                <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Нэр">
+                                            <div class="modal-body form-group col-md-12 mb-2">
+                                                <p>Бүтээгдхүүний нэр: {{$shopDetailWatch->name}}</p>
+                                                <p>Бүтээгхүүний үнэ: {{$shopDetailWatch->price}}</p>
+                                                <p>Бүтээгхүүгий нэр: {{$shopDetailWatch->brand}}</p>
+                                                <p id="ene">Гүйлгээний утга: {{$shopDetailWatch->name.Str::random(10);}}</p>
+                                                <input type="text" id="ners">
+                                                <div id="mongol">
+                                            </div>
                                             </div>
                                             <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Болих</button>
-                                          <button type="button" class="btn btn-primary">захиалах</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel">Болих</button>
+                                          <button type="button" class="btn btn-primary" id="orderok">захиалах</button>
                                         </div>
                                     </div>
                                 </div>
@@ -298,6 +299,14 @@
                 }
             ]
         });
+        $('#orderok').click(function(){
+            $('#ene').text('mongol');
+            $('#orderok').text('баталгаажуулах');
+  
+            
+        })
+      
+        
     </script>
         @include('layout.footer')
     @endsection
