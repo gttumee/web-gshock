@@ -21,7 +21,7 @@ class Commoncontroller extends Controller
     public function shop(Request $request){
         
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = $lastResult[0]['rate_float'];
+        $ratePrice = round($lastResult[0]['rate_float']);
         
         if($request->type){
 
@@ -62,7 +62,7 @@ class Commoncontroller extends Controller
     public function shopdetail(Request $request){
         
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = $lastResult[0]['rate_float'];
+        $ratePrice = round($lastResult[0]['rate_float']);
 
         $shopDetailWatch = Watchs::where('id','=',$request->id)
         ->first();

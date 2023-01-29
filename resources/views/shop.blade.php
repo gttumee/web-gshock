@@ -29,7 +29,9 @@
                             <li><a class="text-decoration-none"  href="{{route('shop',['types=South'])}}">Дижитал</a></li>
                         </ul>
                     </li>
+                    
                 </ul>
+                <iframe style="width:210px;font-size:11px;height:280px;border: none;overflow:hidden;margin:0;"src="//monxansh.appspot.com/xansh.html?currency=JPY"></iframe>
             </div>
             <div class="col-lg-9">
                 <div class="row">
@@ -58,8 +60,8 @@
                         <div class="d-flex">
                             <select class="form-control">
                                 <option>Эрэмбэлэх</option>
-                                <option value="{{ route('shop',['sort=desc'])}}" onchange="window.location.href=this.value;">Үнэ өсөхөөр</option>
-                                <option value="{{ route('shop',['sort=asc'])}}" onchange="window.location.href=this.value;">Үнэ буурхаар</option>
+                                <option href="{{route('shop',['type=Visa'])}}">Үнэ өсөхөөр</option>
+                                <option><li><a class="text-decoration-none"  href="{{route('shop',['types=North'])}}">Аналог</a></li>Үнэ буурхаар</option>
                             </select>
                         </div>
                     </div>
@@ -92,7 +94,7 @@
                                             class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0">₮{{$item->price}}</p>
+                                <p class="text-center mb-0">₮{{$item->price* $ratePrice}}</p>
                             </div>
                         </div>
                     </div>

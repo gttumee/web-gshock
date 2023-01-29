@@ -108,7 +108,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h1 class="h2">{{$shopDetailWatch->name}}</h1>
-                            <p class="h3 py-2">{{$shopDetailWatch->price}}</p>
+                            <p class="h3 py-2">{{$shopDetailWatch->price * $ratePrice}}</p>
                             <p class="py-2">
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>
@@ -182,7 +182,7 @@
                                             </div>
                                             <div class="modal-body form-group col-md-12 mb-2">
                                                 <p>Бүтээгдхүүний нэр: {{$shopDetailWatch->name}}</p>
-                                                <p>Бүтээгхүүний үнэ: {{$shopDetailWatch->price}}</p>
+                                                <p>Бүтээгхүүний үнэ: {{$shopDetailWatch->price * $ratePrice}}</p>
                                                 <p>Бүтээгхүүгий нэр: {{$shopDetailWatch->brand}}</p>
                                                 <p id="ene">Гүйлгээний утга: {{$shopDetailWatch->name.Str::random(10);}}</p>
                                                 <input type="text" id="ners">
@@ -242,7 +242,7 @@
                                     <i class="text-muted fa fa-star"></i>
                                 </li>
                             </ul>
-                            <p class="text-center mb-0">{{$shopDetailWatchRelateds->price}}</p>
+                            <p class="text-center mb-0">{{$shopDetailWatchRelateds->price * $ratePrice}}</p>
                         </div>
                     </div>
                 </div>
