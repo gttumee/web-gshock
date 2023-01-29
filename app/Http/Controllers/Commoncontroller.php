@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Watchs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class Commoncontroller extends Controller
 {
     public function index(){
-             
+                
         $shopDetailWatchRelated = Watchs::orderByDesc('updated_at')
         ->paginate(3);
         
@@ -18,13 +19,15 @@ class Commoncontroller extends Controller
 
     //дэлгүүрийн лимт ангилал гарах хэсэг
     public function shop(Request $request){
-
+        
+        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
+        $ratePrice = $lastResult[0]['rate_float'];
+        
         if($request->type){
 
             $shopall = Watchs::where('type',$request->type)
             ->paginate(15)
             ->withQueryString();
-            return view('shop',compact('shopall'));
         } 
         
         elseif($request->types)
@@ -33,19 +36,22 @@ class Commoncontroller extends Controller
             $shopall = Watchs::where('brand',$request->types)
             ->paginate(15)
             ->withQueryString();
-            return view('shop',compact('shopall'));
         }
         
         elseif($request->search)
         {
             $shopall = Watchs::where('name','like','%'.$request->search.'%')->paginate(15)->withQueryString();
-            return view('shop',compact('shopall'));
+        }
+        elseif($request->sort)
+        {
+            $shopall = Watchs::orderBy('price',$request->sort)->paginate(15)->withQueryString();
         }
         else
         {
             $shopall = Watchs::paginate(15)->withQueryString();
-            return view('shop',compact('shopall'));
         } 
+        return view('shop',compact('shopall','ratePrice'));
+
     }
     
     public function about(){
@@ -54,6 +60,9 @@ class Commoncontroller extends Controller
     
     //цагны дэлгэрэнгүй мэдээлэл гарах хэсэг
     public function shopdetail(Request $request){
+        
+        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
+        $ratePrice = $lastResult[0]['rate_float'];
 
         $shopDetailWatch = Watchs::where('id','=',$request->id)
         ->first();
@@ -61,7 +70,7 @@ class Commoncontroller extends Controller
         $shopDetailWatchRelated = Watchs::orderByDesc('updated_at')
         ->paginate(5);
         
-        return view('shopdetail',compact('shopDetailWatch','shopDetailWatchRelated'));
+        return view('shopdetail',compact('shopDetailWatch','shopDetailWatchRelated','ratePrice'));
     }
 
     // холбоо барих хэсэгийг мэдээлэл хадаглах
