@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Watchs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class Commoncontroller extends Controller
 {
@@ -103,6 +104,15 @@ class Commoncontroller extends Controller
 
     public function mygshock(){
         return view('mygshock');
+    }
+    
+    public function orderconfirm(Request $request){
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $quanity = $request->input('product-quanity');
+        $totalprice = $price * $quanity;
+        $result = str::random(2).date(today()->format('dmY'));
+        return view('order',compact('totalprice','quanity','name','result'));
     }
 
 

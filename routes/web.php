@@ -22,6 +22,8 @@ Route::get('/history',  [Commoncontroller::class, 'history'])->name('history');
 Route::get('/technology',  [Commoncontroller::class, 'technology'])->name('technology');
 Route::get('/mygshock',  [Commoncontroller::class, 'mygshock'])->name('mygshock');
 Route::get('/shopdetail',  [Commoncontroller::class, 'shopdetail'])->name('shopdetail');
+Route::get('/order-confirm',  [Commoncontroller::class, 'orderconfirm'])->name('orderconfirm');
+
 
 Route::get('/', function () {
     return view('welcome');
