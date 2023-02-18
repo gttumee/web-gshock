@@ -88,13 +88,31 @@ $(document).ready(function() {
           }
       ]
   });
-
-  $('#orderok').click(function(){
-      $('#ene').text('mongol');
-      $('#orderok').text('баталгаажуулах');
-
-      
-  })
-    // End roduct detail
+  $(document).ready(function () {
+    $("#secondorder").hide();
+    $("#orderbutton").click(function () {
+      var inputphone=$("#inputphonenumber").val();
+      var inputname=$("#inputname").val();
+      if(inputphone && inputname){
+        $("#fistorder").hide();
+        $("#secondorder").show();
+        $("#phonenumber").text(inputphone);
+        $("#orderinputname").val(inputname);
+      }
+      else
+      {
+        $("#errormessages").show().addClass("p-3 mb-2 bg-danger text-white").text('Та заавал өөрийн нэр болон утасны дугаараа оруулна !!');
+      }
+    });
+    $('#cancel').on('click', function(e){
+      e.preventDefault();
+      window.history.back();
+  });
+  $('#cancelorder').on('click', function(e){
+    $("#secondorder").hide();
+    $("#fistorder").show();
+    $("#errormessages").hide();
+});
+});
 
 });

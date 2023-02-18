@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Productorder;
 use App\Models\Watchs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -11,7 +12,6 @@ use Illuminate\Support\Str;
 class Commoncontroller extends Controller
 {
     public function index(){
-                
         $shopDetailWatchRelated = Watchs::orderByDesc('updated_at')
         ->paginate(3);
         
@@ -20,7 +20,6 @@ class Commoncontroller extends Controller
 
     //дэлгүүрийн лимт ангилал гарах хэсэг
     public function shop(Request $request){
-        
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
         $ratePrice = round($lastResult[0]['rate_float']);
         
@@ -107,12 +106,31 @@ class Commoncontroller extends Controller
     }
     
     public function orderconfirm(Request $request){
+        $id = $request->input('id');
         $name = $request->input('name');
         $price = $request->input('price');
         $quanity = $request->input('product-quanity');
         $totalprice = $price * $quanity;
         $result = str::random(2).date(today()->format('dmY'));
-        return view('order',compact('totalprice','quanity','name','result'));
+        return view('order',compact('totalprice','quanity','name','result','id'));
+    }
+    public function order(Request $request){
+        if($request){
+            $orderData = new Productorder(); 
+            $name = $request->input('inputname'); 
+            $phone =  $request->input('inputphonenumber'); 
+            $ordernumber = $request->input('result'); 
+            $orderData->watchid = $request->input('watchid'); 
+            $orderData->quanity = $request->input('quanity'); 
+            $orderData->totalprice = $request->input('totalprice'); 
+            $orderData->inputname = $name;
+            $orderData->inputphonenumber = $phone;
+            $orderData->ordernumber = $ordernumber;
+            $orderData->save();       
+            return view('orderconfirm',compact('name','phone','ordernumber'));
+            
+        }   
+        return view('orderconfirm');
     }
 
 

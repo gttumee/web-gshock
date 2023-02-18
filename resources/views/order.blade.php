@@ -4,53 +4,75 @@
 @section('content')
  <!-- Modal -->
 <!-- Start Content Page -->
-<section class="bg-light">
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-lg-3 mt-5">
-                <div class="card mb-3">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                        </li>
-                        <li class="list-inline-item">
-                            <div>
-                            <p class="text-muted"><strong>Нэр: {{$name}}</strong></p>
-                            <p class="text-muted"><strong>Нийт үнэ: {{$totalprice}} Төгрөг</strong></p>
-                            <p class="text-muted"><strong>Тоо ширхэг: {{$quanity}} Ширхэг</strong></p>
-                            {{-- <p class="text-muted"><strong>Данс:Худалаа хөгжлийн банк 132456789</strong></p>
-                            <p class="text-muted"><strong>Данс Нэр:Ганболд Анхтуяа</strong></p>
-                            <p class="text-muted"><strong>Гүйлгээний утга:{{$result}} + Утасны дугаар</strong></p> --}}
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Нэр</label>
-                                <input type="email" id="form3Example3" class="form-control form-control-lg"
-                                  placeholder="өөрийн нэр оруулна уу" />
-                              </div>
-                              <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Утас</label>
-                                <input type="email" id="form3Example3" class="form-control form-control-lg"
-                                  placeholder="Утаны дугаар эсвэл имэйл хаяг" />
-                              </div>
-                            <div class="col d-grid">
-                                 <button type="submit" class="btn btn-success btn-lg" id="confirm">Баталгаажуулах</button>
-                                 <button id="btn1">Append text</button>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- col end -->
-            </div>
+<div class="container-fluid bg-light py-5">
+    <div class="col-md-6 m-auto text-center">
+      <div id="fistorder">
+        <h1 class="h1">Захиалга</h1>
+        <form action="{{'order'}}" method="get" id="orderform">
+          <input type="hidden" value="{{$id}}" name="watchid">
+          <input type="hidden" value="{{$quanity}}" name="quanity">
+          <input type="hidden" value="{{$totalprice}}" name="totalprice">
+          <input type="hidden" value="{{$result}}" name="result">
+        <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th scope="row">Нэр</th>
+                <td>{{$name}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Тоо ширхэг</th>
+                <td>{{$quanity}} ширхэг</td>
+              </tr>
+              <tr>
+                <th scope="row">Нийт үнэ</th>
+                <td>{{$totalprice}} Төгрөг </td>
+              </tr> 
+              <tr>
+                <th scope="row" class="table-success">Өөрийн нэр оруулна уу</th>
+                <td class="table-success"><input type="text" id="inputname" name="inputname" placeholder="Нэр"> </td>
+              </tr>
+              <tr>
+                <th scope="row" class="table-success">Утасны дугаар оруулна уу</th>
+                <td class="table-success"><input type="text" id="inputphonenumber" name="inputphonenumber" placeholder="Утас"> </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+          <div id="errormessages"></div>
+          <button class="btn btn-secondary btn-lg" id="cancel">Буцах</button>
+          <button class="btn btn-success btn-lg" id="orderbutton">Баталгаажуулах</button>
+          </div>
+          <div id="secondorder">
+          <h1 class="h1">Төлбөр төлөх </h1>
+            <h4 class="p-3 mb-2 bg-secondary text-white">Та доорх дансанд төлбөрөө төлснөөр захиалга таны гар утсанд мессэжээр мэдээлэл илгээх болно.</h4>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th scope="row">Банк</th>
+                <td>Худалаа хөгжлийн банк</td>
+              </tr>
+              <tr>
+                <th scope="row">Данс дугаар</th>
+                <td>4589898989</td>
+              </tr>
+              <tr>
+                <th scope="row">Данс Нэр</th>
+                <td>Ганболд Анхтуяа</td>
+              </tr>
+              <tr>
+                <th scope="row">Мөнгөн дүн</th>
+                <td>{{$totalprice}} Төгрөг</td>
+              </tr>
+              <tr>
+                <th scope="row">Гүйлгээний утга</th>
+                <td>{{$result}} <p id="phonenumber"></p></td>
+              </tr>
+            </tbody>
+          </table>   
+          <button class="btn btn-secondary btn-lg" id="cancelorder">Буцах</button>
+          <button type="submit" class="btn btn-success btn-lg" form="orderform">Захиалах</button>
         </div>
-    </div>
-</section>
-<script>
-$(document).ready(function(){
-  $("#btn1").click(function(){
-    
-    $("p").append(" <b>Appended text</b>.");
-  });
-});
-</script>
+        </div>
+</div>
 @endsection
 @include('layout.footer')
