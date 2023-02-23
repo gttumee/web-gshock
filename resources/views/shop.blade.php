@@ -29,9 +29,7 @@
                             <li><a class="text-decoration-none"  href="{{route('shop',['types=South'])}}">Дижитал</a></li>
                         </ul>
                     </li>
-                    
                 </ul>
-                <iframe style="width:250px;font-size:11px;height:300px;border: none;overflow:hidden;margin:0;"src="//monxansh.appspot.com/xansh.html?currency=JPY"></iframe>
             </div>
             <div class="col-lg-9">
                 <div class="row">
@@ -67,20 +65,22 @@
                     </div>
                 </div>
                 <div class="row">  
-                    @foreach ($shopall as $item)
+                    @foreach ($data as $item)
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                             <a href="{{ route('shopdetail', ['id'=>$item->id]) }}">
-                                    <img  class="card-img rounded-0 img-fluid" src="assets/img/GW-B5600CT-1_l.png" >
+                             {{-- <a href="{{ route('shopdetail', ['id'=>$item->id]) }}"> --}}
+                                   <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
+                                    <img  class="card-img rounded-0 img-fluid" src="assets/img/{{$item['sku']}}.png" >
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">{{$item->name}}</a>
+                                <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}" class="h3 text-decoration-none">{{$item['sku']}}</a></br>
+                               
+                                <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}" class="h3 text-decoration-none"> {{ \Carbon\Carbon::parse($item['releaseDate'])->format('Y оны m сар')}}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>{{$item->brand}}</li>
                                     <li class="pt-2">
                                         <span
                                             class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -94,13 +94,12 @@
                                             class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0">₮{{$item->price* $ratePrice}}</p>
+                                <p class="text-center mb-0">{{number_format($item['listPrice']* $ratePrice)}}₮</p>
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                {{ $shopall->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

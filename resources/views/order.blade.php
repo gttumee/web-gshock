@@ -8,7 +8,8 @@
     <div class="col-md-6 m-auto text-center">
       <div id="fistorder">
         <h1 class="h1">Захиалга</h1>
-        <form action="{{'order'}}" method="get" id="orderform">
+        <form action="{{'order'}}" method="post" id="orderform">
+          @csrf
           <input type="hidden" value="{{$id}}" name="watchid">
           <input type="hidden" value="{{$quanity}}" name="quanity">
           <input type="hidden" value="{{$totalprice}}" name="totalprice">
@@ -25,7 +26,7 @@
               </tr>
               <tr>
                 <th scope="row">Нийт үнэ</th>
-                <td>{{$totalprice}} Төгрөг </td>
+                <td>{{number_format($totalprice)}} Төгрөг </td>
               </tr> 
               <tr>
                 <th scope="row" class="table-success">Өөрийн нэр оруулна уу</th>
@@ -61,7 +62,7 @@
               </tr>
               <tr>
                 <th scope="row">Мөнгөн дүн</th>
-                <td>{{$totalprice}} Төгрөг</td>
+                <td>{{number_format($totalprice)}} Төгрөг</td>
               </tr>
               <tr>
                 <th scope="row">Гүйлгээний утга</th>

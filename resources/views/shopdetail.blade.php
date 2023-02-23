@@ -8,7 +8,8 @@
             <div class="row">
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
-                        <img class="card-img img-fluid" src="assets/img/product_single_10.jpg" alt="Card image cap" id="product-detail">
+                        @foreach($shopDetailWatch as $item)    
+                        <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.png" alt="Card image cap" id="product-detail">
                     </div>
                     <div class="row">
                         <!--Start Controls-->
@@ -105,12 +106,13 @@
                     <div class="card">
                         <div class="card-body">
                             <form action={{route("orderconfirm")}} method="get">
-                            <input type="hidden" name="id" value="{{$shopDetailWatch->id}}">
-                            <h1 class="h2"><input type="hidden" name="name" value="{{$shopDetailWatch->name}}">{{$shopDetailWatch->name}}</h1>
-                            <p class="h3 py-2"><input type="hidden" name="price" value="{{$shopDetailWatch->price * $ratePrice}}">{{$shopDetailWatch->price * $ratePrice}}</p>
+                                      
+                            <input type="hidden" name="id" value="{{$item['index']}}">
+                            <h1 class="h2"><input type="hidden" name="name" value="{{$item['sku']}}">{{$item['sku']}}</h1>
+                            <p class="h3 py-2"><input type="hidden" name="price" value="{{$item['listPrice'] * $ratePrice}}"> Үнэ: {{number_format($item['listPrice'] * $ratePrice)}} төгрөг</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <h6><input type="hidden" name="type" value="{{$shopDetailWatch->brand}}">{{$shopDetailWatch->brand}}</h6>
+                                <h6><input type="hidden" name="type" value="{{$item['brandDisp']}}">{{$item['brandDisp']}}</h6>
                                 </li>
                                 <li class="list-inline-item">
                                     <p class="text-muted"><strong>Easy Wear</strong></p>
@@ -118,17 +120,25 @@
                             </ul>
 
                             <h6>Дэлгрэнгүй:</h6>
-                            <p>{{$shopDetailWatch->text}}</p>
+                            <p>{{$item['priceLabel']}}</p>
+                            @endforeach
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Avaliable Color :</h6>
+                                    {{-- <h6>Жин: {{$item['weight']}}грам</h6> --}}
                                 </li>
                                 <li class="list-inline-item">
                                     <p class="text-muted"><strong>White / Black</strong></p>
                                 </li>
+                                <li class="list-inline-item">
+                                    <h6>Жин:</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong>{{$item['weight']}}грам</strong></p>
+                                </li>
                             </ul>
 
-                            <h6>Specification:</h6>
+                            <h6>G-shock.jp үзэх:<a href="{{$item['url']}}"  target="_blank" rel="noopener noreferrer">{{$item['sku']}}</a></h6>
                             <ul class="list-unstyled pb-3">
                                 <li>Lorem ipsum dolor sit</li>
                                 <li>Amet, consectetur</li>
@@ -167,19 +177,19 @@
             </div>
             <!--Start Carousel Wrapper-->
             <div id="carousel-related-product">
-                @foreach ($shopDetailWatchRelated as $shopDetailWatchRelateds)
+                @foreach ($shopDetailWatchRelated as $item)
                 <div class="p-2 pb-3">
                     <div class="product-wap card rounded-0">
                         <div class="card rounded-0">
-                            <a href="{{ route('shopdetail', ['id'=>$shopDetailWatchRelateds->id]) }}">
+                            <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
                                 <img  class="card-img rounded-0 img-fluid" src="assets/img/GW-B5600CT-1_l.png" >
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             </div>
                         </div>
                         <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">{{$shopDetailWatchRelateds->name}}</a>
+                            <a href="shop-single.html" class="h3 text-decoration-none">{{$item['sku']}}</a>
                             <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>{{$shopDetailWatchRelateds->brand}}</li>
+                                <li>{{ \Carbon\Carbon::parse($item['releaseDate'])->format('Y оны m сар')}}</li>
                                 <li class="pt-2">
                                     <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                     <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -188,16 +198,7 @@
                                     <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                 </li>
                             </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">{{$shopDetailWatchRelateds->price * $ratePrice}}</p>
+                            <p class="text-center mb-0">{{number_format($item['listPrice']* $ratePrice)}}₮</p>
                         </div>
                     </div>
                 </div>

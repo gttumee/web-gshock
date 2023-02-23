@@ -25,7 +25,10 @@ Route::get('/technology',  [Commoncontroller::class, 'technology'])->name('techn
 Route::get('/mygshock',  [Commoncontroller::class, 'mygshock'])->name('mygshock');
 Route::get('/shopdetail',  [Commoncontroller::class, 'shopdetail'])->name('shopdetail');
 Route::get('/order-confirm',  [Commoncontroller::class, 'orderconfirm'])->name('orderconfirm');
+Route::post('/order',  [Commoncontroller::class, 'order'])->name('order');
 Route::get('/order',  [Commoncontroller::class, 'order'])->name('order');
+
+
 
 
 Route::get('/', function () {
