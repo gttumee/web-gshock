@@ -19,7 +19,23 @@
             </form>
         </div>
     </div>
-    <section class="bg-success py-5">
+    <section class="bg-dark py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-white">
+                    <h1>About Us</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/img/banner_img_02.png" alt="About Hero">
+                </div>
+            </div>
+        </div>
+        <iframe width="420" height="315" src="https://www.youtube.com/watch?list=TLGGbrAEGM6f7gcyMzAyMjAyMw&v=i-HoUwzSiiU" frameborder="0" allowfullscreen></iframe>
         <div class="container">
             <div class="row align-items-center py-5">
                 <div class="col-md-8 text-white">

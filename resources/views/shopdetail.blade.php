@@ -9,7 +9,7 @@
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
                         @foreach($shopDetailWatch as $item)    
-                        <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.png" alt="Card image cap" id="product-detail">
+                        <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Card image cap" id="product-detail">
                     </div>
                     <div class="row">
                         <!--Start Controls-->
@@ -182,7 +182,7 @@
                     <div class="product-wap card rounded-0">
                         <div class="card rounded-0">
                             <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
-                                <img  class="card-img rounded-0 img-fluid" src="assets/img/GW-B5600CT-1_l.png" >
+                                <img  class="card-img rounded-0 img-fluid" src="assets/img/{{$item['sku']}}.jpg" >
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             </div>
                         </div>

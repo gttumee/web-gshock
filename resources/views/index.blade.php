@@ -148,25 +148,17 @@
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <a href="{{ route('shopdetail', ['id'=>$items->id]) }}">
-                            <img src="./assets/img/feature_prod_01.png" class="card-img-top" alt="...">
+                            <a href="{{ route('shopdetail', ['id'=>$items['index']]) }}">
+                            <img src="./assets/img/{{$items['sku']}}.jpg" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                                <li class="text-muted text-right">{{$items->price}}</li>
+                                <li class="text-muted text-right">{{$items['sku']}}</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{$items->name}}</a>
+                            {{ \Carbon\Carbon::parse($items['releaseDate'])->format('Y оны m сар')}}
                             <p class="card-text">
-                                {{$items->text}}
+                                <p class="text-center mb-0">{{number_format($items['listPrice']* $ratePrice)}}₮</p>
                             </p>
-                            <p class="text-muted">Reviews (24)</p>
                         </div>
                     </div>
                 </div>

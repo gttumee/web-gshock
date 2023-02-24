@@ -12,16 +12,20 @@ use Illuminate\Support\Str;
 class Commoncontroller extends Controller
 {
     public function index(){
-        $shopDetailWatchRelated = Watchs::orderByDesc('updated_at')
-        ->paginate(3);
-        
-        return view('index',compact('shopDetailWatchRelated'));
+        $orderData = Productorder::distinct('watchid')->get();
+        $orderData =Productorder::orderBy('watchid','desc')->distinct()->select('watchid')->get()->take(3);
+        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
+        $ratePrice = round($lastResult[0]['rate_float'])+3;
+        $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
+        $collection=$lastResult['data'];
+        $shopDetailWatchRelated = (collect($collection)->whereIn('index',$orderData->pluck('watchid')->toarray()));
+        return view('index',compact('shopDetailWatchRelated','ratePrice'));
     }
 
     //дэлгүүрийн лимт ангилал гарах хэсэг
     public function shop(Request $request){
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = round($lastResult[0]['rate_float'])+8;
+        $ratePrice = round($lastResult[0]['rate_float'])+3;
         $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
         $collection=$lastResult['data'];
         $data = collect($collection)->sortByDesc('releaseDate')->values()->all();
@@ -65,7 +69,7 @@ class Commoncontroller extends Controller
     public function shopdetail(Request $request){
 
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = round($lastResult[0]['rate_float'])+8;
+        $ratePrice = round($lastResult[0]['rate_float'])+3;
         $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
         $collection=collect($lastResult['data']); 
         $shopDetailWatchRelateds = collect($collection)->sortByDesc('releaseDate')->values()->all();       
@@ -83,8 +87,6 @@ class Commoncontroller extends Controller
 
     // холбоо барих хэсэгийг мэдээлэл хадаглах
     public function contact(Request $request){
-        $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
-        $data=$lastResult['data'];
         if(count($request->all()) > 0) {
             $saveInfo = new Contact();
             $saveInfo->name = $request->input('name');
@@ -96,7 +98,7 @@ class Commoncontroller extends Controller
             ->route('contact')
             ->with('message', 'Таны хүсэлт амжилттай илгээгдлээ.');    
             }
-            return view('contact',compact('data')); 
+            return view('contact'); 
     }
     
     public function history(){

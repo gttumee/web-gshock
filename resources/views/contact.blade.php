@@ -6,26 +6,6 @@
 <!-- Start Content Page -->
 <div class="container-fluid bg-light py-5">
     <div class="col-md-6 m-auto text-center">
-        @foreach($data as $items)
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">нэр</th>
-                <th scope="col">үнэ</th>
-                <th scope="col">гарсан он</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>{{$items['sku']}}</td>
-                <td>{{$items['listPrice']}}</td>
-                <td>{{$items['releaseDate']}}</td>
-              </tr>
-            </tbody>
-          </table>
-        @endforeach
         <h1 class="h1">Холбоо барих</h1>
         <p>
             та мэйл хаяг аль эсвэл утасны дугаараа заавал оруулна уу 

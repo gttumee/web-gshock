@@ -71,7 +71,7 @@
                             <div class="card rounded-0">
                              {{-- <a href="{{ route('shopdetail', ['id'=>$item->id]) }}"> --}}
                                    <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
-                                    <img  class="card-img rounded-0 img-fluid" src="assets/img/{{$item['sku']}}.png" >
+                                    <img  class="card-img rounded-0 img-fluid" src="assets/img/{{$item['sku']}}.jpg" >
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 </div>
