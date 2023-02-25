@@ -34,7 +34,7 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
     <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <nav class="navbar navbar-expand-lg bg-black navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
             <div class="w-100 d-flex justify-content-between">
                 <div>
@@ -61,7 +61,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="{{route('index')}}"></a>
             <img class="logo" src="./assets/img/logo.png" alt="">
@@ -83,16 +83,19 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="{{route('index')}}">Эхлэл</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('history')}}">G-Shock түүх</a>
+                            <a class="nav-link" href="{{route('history')}}">Түүх</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('technology')}}">G-Shock технологи</a>
+                            <a class="nav-link" href="{{route('technology')}}">Технологи</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('mygshock')}}">Миний G-Shock </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('shop')}}">Дэлгүүр</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('request')}}">Захиалга</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Холбоо барих</a>

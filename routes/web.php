@@ -27,10 +27,8 @@ Route::get('/shopdetail',  [Commoncontroller::class, 'shopdetail'])->name('shopd
 Route::get('/order-confirm',  [Commoncontroller::class, 'orderconfirm'])->name('orderconfirm');
 Route::post('/order',  [Commoncontroller::class, 'order'])->name('order');
 Route::get('/order',  [Commoncontroller::class, 'order'])->name('order');
-
-
-
-
+Route::get('/request',  [Commoncontroller::class, 'request'])->name('request');
+Route::post('/request',  [Commoncontroller::class, 'request'])->name('request');
 Route::get('/', function () {
     return view('welcome');
 });

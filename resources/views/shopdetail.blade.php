@@ -29,17 +29,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                     </div>
@@ -50,17 +50,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_04.jpg" alt="Product Image 4">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                     </div>
@@ -71,17 +71,17 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_07.jpg" alt="Product Image 7">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9">
+                                                <img class="card-img img-fluid" src="assets/img/{{$item['sku']}}.jpg" alt="Product Image 1">
                                             </a>
                                         </div>
                                     </div>
@@ -105,44 +105,28 @@
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <form action={{route("orderconfirm")}} method="get">
-                                      
+                            <form action={{route("orderconfirm")}} method="get">         
                             <input type="hidden" name="id" value="{{$item['index']}}">
                             <h1 class="h2"><input type="hidden" name="name" value="{{$item['sku']}}">{{$item['sku']}}</h1>
                             <p class="h3 py-2"><input type="hidden" name="price" value="{{$item['listPrice'] * $ratePrice}}"> Үнэ: {{number_format($item['listPrice'] * $ratePrice)}} төгрөг</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                <h6><input type="hidden" name="type" value="{{$item['brandDisp']}}">{{$item['brandDisp']}}</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Easy Wear</strong></p>
-                                </li>
-                            </ul>
-
-                            <h6>Дэлгрэнгүй:</h6>
-                            <p>{{$item['priceLabel']}}</p>
-                            @endforeach
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Avaliable Color :</h6>
-                                    {{-- <h6>Жин: {{$item['weight']}}грам</h6> --}}
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>White / Black</strong></p>
-                                </li>
-                                <li class="list-inline-item">
-                                    <h6>Жин:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>{{$item['weight']}}грам</strong></p>
-                                </li>
-                            </ul>
-
-                            <h6>G-shock.jp үзэх:<a href="{{$item['url']}}"  target="_blank" rel="noopener noreferrer">{{$item['sku']}}</a></h6>
-                            <ul class="list-unstyled pb-3">
-                                <li>Lorem ipsum dolor sit</li>
-                                <li>Amet, consectetur</li>
-                            </ul>
+                            @if(substr($item['additionalAttributions']['displayType']['0'],94) == 'analog')
+                            <p class="h3 py-2"><input type="hidden"> Төрөл: Аналог </p>
+                            @endif
+                            @if(substr($item['additionalAttributions']['displayType']['0'],94) == 'digital')
+                            <p class="h3 py-2">Төрөл: Дижитал </p>
+                           @else
+                           <p class="h3 py-2">Төрөл: Дижитал Аналог </p>
+                           @endif
+                            <p class="h3 py-2">Жин: {{$item['weight']}} грам</p>
+                            @if(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114) == 'solar')
+                            <p class="h3 py-2">Баттерны төрөл: Нарны зай хураагуур</p>
+                            <p class="h3 py-2">Баттерны цэнэг: Нарны зай хураагуур</p>
+                            @else
+                            <p class="h3 py-2">Баттерны төрөл: Баттери</p>
+                            <p class="h3 py-2">Баттерны цэнэг: {{substr(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114,),0,1)}} жил</p>
+                            @endif
+                            <h6><a href="{{$item['url']}}"  target="_blank" rel="noopener noreferrer">Дэлгэнгүй зураг үзэх</a></h6>
+                              @endforeach
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">

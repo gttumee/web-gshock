@@ -1,6 +1,6 @@
 @section('footer')
   <!-- Start Footer -->
-  <footer class="bg-dark" id="tempaltemo_footer">
+  <footer class="bg-black" id="tempaltemo_footer">
     <div class="container">
         <div class="row">
 
@@ -36,10 +36,11 @@
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Цэс</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href={{route('index')}}>Эхлэл</a></li>
-                    <li><a class="text-decoration-none" href={{route('about')}}>G-Shock түүх</a></li>
-                    <li><a class="text-decoration-none" href={{route('about')}}>G-Shock технологи</a></li>
-                    <li><a class="text-decoration-none" href={{route('about')}}>Миний G-Shock</a></li>
+                    <li><a class="text-decoration-none" href={{route('history')}}>G-Shock түүх</a></li>
+                    <li><a class="text-decoration-none" href={{route('technology')}}>G-Shock технологи</a></li>
+                    <li><a class="text-decoration-none" href={{route('mygshock')}}>Миний G-Shock</a></li>
                     <li><a class="text-decoration-none" href="{{route('shop')}}">Дэлгүүр</a></li>
+                    <li><a class="text-decoration-none" href="{{route('request')}}">Захиалга</a></li>
                     <li><a class="text-decoration-none" href="{{route('contact')}}">Холбоо барих</a></li>
                 </ul>
             </div>

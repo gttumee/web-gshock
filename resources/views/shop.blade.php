@@ -7,26 +7,27 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-3">
-                <h1 class="h2 pb-4">Категори</h1>
+                <h3 class="h3 pb-6">Нийт: {{count($data)}}</h3>
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Баттери төрөл
+                            Баттери төрөлөөр шүүх
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
+                        </a>  
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="{{route('shop',['type=MasterCard'])}}">Баттери </a></li>
-                            <li><a class="text-decoration-none" href="{{route('shop',['type=Visa'])}}">Нарны зай хураагуур</a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['battery=other'])}}">Баттери </a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['battery=solar'])}}">Нарны зай хураагуур</a></li>
                         </ul>
                     </li>
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Цагны төрөлөөр
+                            Цагны төрөлөөр шүүх
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none"  href="{{route('shop',['types=North'])}}">Аналог</a></li>
-                            <li><a class="text-decoration-none"  href="{{route('shop',['types=South'])}}">Дижитал</a></li>
+                            <li><a class="text-decoration-none"  href="{{route('shop',['types=digital'])}}">Дижитал</a></li>
+                            <li><a class="text-decoration-none"  href="{{route('shop',['types=analog'])}}">Аналог</a></li>
+                            <li><a class="text-decoration-none"  href="{{route('shop',['types=digital-analog'])}}">Дижитал Аналог</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -36,13 +37,16 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                                 <li class="list-inline-item">
-                                    <a class="h3 text-dark text-decoration-none mr-3"  href="{{route('shop')}}">Бүгд</a>
+                                    <a class="h3 text-dark text-decoration-none mr-3"  href="{{route('shop',['type=low'])}}">Хямд ↓</a>
                                 </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="{{route('shop',['type=Visa'])}}">Эрэгтэй</a>
+                                <a class="h3 text-dark text-decoration-none mr-3" href="{{route('shop',['type=higth'])}}">Үнэтэй ↑</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=MasterCard'])}}">Эмэгтэй</a>
+                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=new'])}}">Шинэ↑</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=old'])}}">Хуучин ↓</a>
                             </li>
                         </ul>
                     </div>
@@ -54,22 +58,12 @@
                     </div>
                     </form>
                     </div>
-                    <div class="col-md-2 pb-3">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>Эрэмбэлэх</option>
-                                <option href="{{route('shop',['type=Visa'])}}">Үнэ өсөхөөр</option>
-                                <option><li><a class="text-decoration-none"  href="{{route('shop',['types=North'])}}">Аналог</a></li>Үнэ буурхаар</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">  
                     @foreach ($data as $item)
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                             {{-- <a href="{{ route('shopdetail', ['id'=>$item->id]) }}"> --}}
                                    <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
                                     <img  class="card-img rounded-0 img-fluid" src="assets/img/{{$item['sku']}}.jpg" >
                                 <div
