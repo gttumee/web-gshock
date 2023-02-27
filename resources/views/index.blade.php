@@ -1,5 +1,5 @@
 @extends('layout.common')
-@section('title', 'Нүүр хуудас')
+@section('title', 'Эхлэл')
 @include('layout.header')
 @section('content')
     <!-- Modal -->
@@ -31,16 +31,32 @@
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/image410.png" alt="">
+                            <img class="img-fluid" src="./assets/img/first.png" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1">Анхны аналог загвар</h1>
-                                <h3 class="h2">1984 онд бүтээгдсэн</h3>
+                                <h1 class="h2">G-SHOCK Анхны загвар </h1>
+                                <h1 class="h2">DW-5000C</h1>
+                                <h3 class="h2">1983 он</h3>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites.
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
-                                    kind of template collection websites.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="./assets/img/first_analog.png" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h2">G-SHOCK Анхны аналог загвар </h1>
+                                <h1 class="h2">AWM-500-1AJF</h1>
+                                <h3 class="h2">1989 он</h3>
+                                <p>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -54,32 +70,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h2">Анхны дижитал загвар </h1>
-                                <h3 class="h2">1983 онд анх зохион бүээгдсэн</h3>
+                                <h1 class="h2">G-SHOCK Анхны метал загвар </h1>
+                                <h1 class="h2">MTG-B2000B-1A2JF </h1>
+                                <h3 class="h2">2000 он</h3>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites.
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
-                                    kind of template collection websites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/image410.png" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Анхны металл загвар</h1>
-                                <h3 class="h2">2000 онд анх гарсан</h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites.
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or
-                                    tell your friends about our website. Thank you.
                                 </p>
                             </div>
                         </div>

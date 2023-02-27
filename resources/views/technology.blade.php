@@ -2,217 +2,62 @@
 @section('title', 'Технологи')
 @include('layout.header')
 @section('content')
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
+  <!--Main layout-->
+  <main class="mt-4 mb-10">
+    <div class="card mb-4 w-auto p-3">
+        <img class="img-thumbnail" alt="Cinque Terre" src="assets/img/technology_resist.jpg">
+        <div class="card-body">
+          <h5 class="card-title">ЗОХИОН БҮТЭЭГЧ</h5>
+          <p class="card-text"> Хэзээ ч эврэхгүй цаг бүтээх мөрөөдөл</p>
+          Анхны G-SHOCK-ийг бүтээсэн өвөрмөц кейсийн бүтэц. "Цохилтыг резинэн бөмбөгөөр дамжуулж болохгүй" гэсэн санаан дээр 
+          үндэслэн модулиудыг хайрцагны дотор хөвөхөөр зохион байгуулж, гаднаас үзүүлэх нөлөөллийг зөөлрүүлдэг. Өнөөдөр технологийн 
+          цаашдын шинэчлэл нь модулийг өөрөө цочролд тэсвэртэй болгосон. Бүх зүйл эндээс эхэлсэн. Г-ийн гарал үүслийг өгүүлдэг эрин үеийн хатуулаг бүтэц
         </div>
-    </div>
-    <section class="bg-dark py-5">
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/img/banner_img_02.png" alt="About Hero">
-                </div>
-            </div>
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_resistance.jpg">
+        <div class="card-body">
+          <h5 class="card-title">ТУРШИЛТУУД</h5>
+          <p class="card-text">Модулийг гадны цочролоос хамгаалдаг хөндий бүтэцтэй хайрцаг, 
+            модулийн доторх чухал хэсгүүдийн зөөлөвч материалын хамгаалалт, өвөрмөц гэр, хүрээний хэлбэрийн шууд цохилтыг зөөлрүүлдэг 
+            бүх чиглэлтэй хамгаалалтын бүтэц нь түүнийг уналтын цохилтод тэсвэртэй бүтэц болгодог.
         </div>
-        <iframe width="420" height="315" src="https://www.youtube.com/watch?list=TLGGbrAEGM6f7gcyMzAyMjAyMw&v=i-HoUwzSiiU" frameborder="0" allowfullscreen></iframe>
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
-                    <h1>About Us</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/img/banner_img_02.png" alt="About Hero">
-                </div>
-            </div>
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_smartphone.jpg">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          Ухаалаг утсанд өдөрт дөрвөн удаа автоматаар холбогдож, цагаа засдаг. Цагийн бүсээс цааш шилжих үед орон нутгийн цагийг нэг түлхэлтээр харуулна. 
+          Түүнчлэн дэлхийн улс орнуудын цагийн бүсийг өөрчлөх, зуны цагийн хуваарийг 
+          нэвтрүүлэх/цуцлах зэрэг цагийн дүрмийг уг апп-аар дамжуулан цагны дотоод өгөгдөлд цуглуулж, тусгадаг.
+           Хамгийн сүүлийн үеийн мэдээлэлд үндэслэн цагийг үргэлж тохируулаарай.
+          <p class="card-text">
         </div>
-    </section>
-    <!-- Close Banner -->
-
-    <!-- Start Section -->
-    <section class="container py-5">
-        <div class="row text-center pt-5 pb-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Our Services</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
-                </p>
-            </div>
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_water.jpg">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          Үүнийг өдөр тутмын усны ажил, шүршүүрт орохоос эхлээд усанд сэлэх, серфинг хийх, тийрэлтэт цанаар гулгах зэрэг олон төрлийн газар, нөхцөл байдалд ашиглаж болно.
+          <p class="card-text">
         </div>
-        <div class="row">
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
-                    <h2 class="h5 mt-4 text-center">Delivery Services</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
-                    <h2 class="h5 mt-4 text-center">Shipping & Return</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-percent"></i></div>
-                    <h2 class="h5 mt-4 text-center">Promotion</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
-                    <h2 class="h5 mt-4 text-center">24 Hours Service</h2>
-                </div>
-            </div>
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_gps.jpg">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          GPS-ийн хиймэл дагуулаас хүлээн авсан байрлалын мэдээлэл болон дэлхийг бүхэлд нь 500 м-ийн нэгжээр нэгтгэсэн өндөр нарийвчлалтай газрын зургийн өгөгдлийг ашигласнаар одоогийн байршлыг илүү нарийвчлалтай тодорхойлох боломжтой.
+Түүнчлэн цагийн бүс, зуны цагийн дүрэмтэй бүсүүдийг бүлэглэсэн хувьсах өгөгдлийн шинжилгээний аргыг ашигласнаар цагийн зөрүүг өндөр хурдтай, өндөр нарийвчлалтайгаар тогтоох боломжтой.
+          <p class="card-text">
         </div>
-    </section>
-    <!-- End Section -->
-
-    <!-- Start Brands -->
-    <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Our Brands</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        Lorem ipsum dolor sit amet.
-                    </p>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <div class="row d-flex flex-row">
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand"
-                                data-bs-ride="carousel">
-                                <!--Slides-->
-                                <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide-->
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End First slide-->
-
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img"
-                                                        src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Third slide-->
-
-                                </div>
-                                <!--End Slides-->
-                            </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
-
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-                    </div>
-                </div>
-            </div>
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_multiband.jpg">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          Аморф материалаар хийсэн цочролд тэсвэртэй авсаархан антенн нь өндөр мэдрэмжтэй цаг хугацааны мэдээллийг дамжуулах стандарт радио долгионыг хүлээн авдаг.
+Энэ нь хүнд хэцүү үйл ажиллагааны бат бөх байдлыг хангахын зэрэгцээ дэлхийн 6 станцаас радио долгионыг тогтвортой хүлээн авах найдвартай байдлыг хангадаг
+          <p class="card-text">
         </div>
-    </section>
-    <!--End Brands-->
+        <img class="img-thumbnail" alt="Cinque Terre"  src="assets/img/technology_solar.jpg">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          Бага хэмжээний гэрэлтэй ч гэсэн цахилгаан үүсгэдэг нарны зай, том хүчин чадалтай хоёрдогч батерейг хослуулснаар хүнд ачаалал шаарддаг төрөл бүрийн функцуудыг тогтвортой ажиллуулах боломжтой.
+          Хагарахад хэцүү хальсан нарны зайг ашигласнаар шингэн болор болон залгах хэвлэлийн талбайг нарийн тооцдог.
+          Зургаан эсийг цувралаар холбож, эс тус бүр ижил хэмжээний гэрлийг хүлээн авахаар зохион бүтээсэн.
+          <p class="card-text">
+        </div>
+      </div>
+  </main>
     @endsection
 @include('layout.footer')
