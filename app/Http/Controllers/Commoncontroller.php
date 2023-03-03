@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Productorder;
 use App\Models\Requesttable;
-use App\Models\Watchs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -18,7 +17,7 @@ class Commoncontroller extends Controller
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
         $ratePrice = round($lastResult[0]['rate_float'])+3;
         $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
-        $collection=$lastResult['data'];
+        $collection = $lastResult['data'];
         $shopDetailWatchRelated = (collect($collection)->whereIn('index',$orderData->pluck('watchid')->toarray()));
         return view('index',compact('shopDetailWatchRelated','ratePrice'));
     }
@@ -71,7 +70,7 @@ class Commoncontroller extends Controller
                             }
                             else
                             {
-                                $data = collect($data)->filter(function ($user) use ($battery) {
+                                $data = collect($data)->filter(function ($user)  {
                                     return (substr($user['additionalAttributions']['batteryAndBatteryLife']['0'],114)) <> 'solar';
                                 });  
                             }
@@ -86,7 +85,6 @@ class Commoncontroller extends Controller
                     }
                 } 
             }
-               
         return view('shop',compact('ratePrice','data'));
 
     }

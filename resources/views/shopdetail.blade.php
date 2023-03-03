@@ -121,8 +121,10 @@
                             @if(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114) == 'solar')
                             <p class="h3 py-2">Баттерны төрөл: Нарны зай хураагуур</p>
                             <p class="h3 py-2">Баттерны цэнэг: Нарны зай хураагуур</p>
+                            @elseif(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],111) == 'wireless_02')
+                            <p class="h3 py-2">Баттерны төрөл: Нарны зай Type-A USB цэнэглэгч</p>
+                            <p class="h3 py-2">Баттерны цэнэг: Нарны зай Type-A USB цэнэглэгч</p>
                             @else
-                            <p class="h3 py-2">Баттерны төрөл: Баттери</p>
                             <p class="h3 py-2">Баттерны цэнэг: {{substr(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114,),0,1)}} жил</p>
                             @endif
                             <h6><a href="{{$item['url']}}"  target="_blank" rel="noopener noreferrer">Дэлгэнгүй зураг үзэх</a></h6>

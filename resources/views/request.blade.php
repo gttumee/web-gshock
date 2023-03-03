@@ -19,7 +19,7 @@
           @endif
     </div>
   @if(isset($data))  
-  <div class="col-md-8 m-auto text-center">
+  <div class="col-md-7 m-auto text-center">
   <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -41,7 +41,7 @@
           <td class="h6"> {{$items['sku']}} </td>
           <input class="h6" type="hidden" name="id" value="{{$items['index']}}">
           <input class="h6" type="hidden" name="name" value="{{$items['sku']}}">
-          <td><select class="form-select" name="select">
+          <td><select class="form-select h6" name="select">
             <option value="0" >--Сонгох--</option>
             <option value="case" >Кэйс</option>
             <option value="belt">Оосор</option>
@@ -49,7 +49,7 @@
             <option value="set">Сэт</option>
           </select>   
           <td>
-            <input type="text" name="color" placeholder="Өнгө оруулана уу">
+            <input type="text" class="h6" name="color" placeholder="Өнгө оруулана уу">
           </td>
           <td><input class="btn btn-success btn-lg" type="submit" value="Захиалах" ></td>
         </tr>
