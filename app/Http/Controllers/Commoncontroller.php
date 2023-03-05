@@ -6,12 +6,18 @@ use App\Models\Contact;
 use App\Models\Productorder;
 use App\Models\Requesttable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class Commoncontroller extends Controller
 {
-    public function index(){
+    public function index(request $request){
+        
+        if($request->all()){
+            return redirect('index')->with(Auth::logout());
+        }
+        
         $orderData = Productorder::distinct('watchid')->get();
         $orderData =Productorder::orderBy('watchid','desc')->distinct()->select('watchid')->get()->take(3);
         $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
@@ -154,6 +160,12 @@ class Commoncontroller extends Controller
             $orderData->quanity = $request->input('quanity'); 
             $orderData->totalprice = $request->input('totalprice'); 
             $orderData->inputname = $name;
+            if(isset(Auth::user()->id)){
+                $orderData->user_id=Auth::user()->id;
+            }else
+            {
+                $orderData->user_id="not login";
+            }
             $orderData->inputphonenumber = $phone;
             $orderData->ordernumber = $ordernumber;
             $orderData->save();       
@@ -181,9 +193,17 @@ class Commoncontroller extends Controller
             $requestData->watchid = $request->input('id'); 
             $requestData->color = $request->input('color'); 
             $requestData->type = $request->input('select'); 
-            $requestData->user = "tumee"; 
+            if(isset(Auth::user()->id)){
+                $requestData->user=Auth::user()->id;
+            }else
+            {
+                $requestData->user="not login";
+            }
             $requestData->save();
-            return view('request');
+            return redirect()
+            ->route('request')
+            ->with('message', 'Таны хүсэлт амжилттай илгээгдлээ.');    
+            
         }
         return view('request');
     }

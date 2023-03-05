@@ -34,13 +34,13 @@
       <tbody>  
       @foreach($data as $items)
       <form action="{{route('request')}}" method="post">
-        @csrf
+        @csrf <!-- {{ csrf_field() }} -->
         <tr>
           <th></th>
           <td><img  class="card-img rounded-0 img-fluid" src="assets/img/{{$items['sku']}}.jpg" ></td>
           <td class="h6"> {{$items['sku']}} </td>
-          <input class="h6" type="hidden" name="id" value="{{$items['index']}}">
-          <input class="h6" type="hidden" name="name" value="{{$items['sku']}}">
+          <input  type="hidden" name="id" value="{{$items['index']}}">
+          <input  type="hidden" name="name" value="{{$items['sku']}}">
           <td><select class="form-select h6" name="select">
             <option value="0" >--Сонгох--</option>
             <option value="case" >Кэйс</option>

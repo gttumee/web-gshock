@@ -16,7 +16,7 @@
 <div class="container py-5">
     <div class="row py-5">
         <form class="col-md-9 m-auto" method="post" action="{{route('contact')}}" role="form">
-            @csrf
+            @csrf <!-- {{ csrf_field() }} -->
             <div class="row">
             @if(session('message'))
         <div class="alert alert-success">{{session('message')}}</div>

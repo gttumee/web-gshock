@@ -120,8 +120,33 @@ https://templatemo.com/tm-559-zay-shop
                         <!-- <span
                                 class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-white">7</span> -->
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-white mr-3"></i>
+                    {{-- <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-white mr-3"></i> --}}
+                       <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('facebook-login') }}">
+                                        <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i>{{ __('Нэвтрэх') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i>{{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end bg-black" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item bg-black" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('гарах') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('index') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                         <!-- <span
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-white">+99</span> -->
                     </a>

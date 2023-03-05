@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Commoncontroller;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index',  [Commoncontroller::class, 'index'])->name('index');
+Route::post('/index',  [Commoncontroller::class, 'index'])->name('index');
 Route::get('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::post('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::get('/shop',  [Commoncontroller::class, 'shop'])->name('shop');
@@ -32,3 +35,12 @@ Route::post('/request',  [Commoncontroller::class, 'request'])->name('request');
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+Route::get('login/facebook', [LoginController::class, 'redirectToProvider'])->name('facebook-login');
+Route::get('login/facebook/callback', [LoginController::class, 'handleProviderCallback'])->name('facebook-logout');
+
+
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

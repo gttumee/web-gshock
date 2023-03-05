@@ -8,8 +8,8 @@
     <div class="col-md-6 m-auto text-center">
       <div id="fistorder">
         <h1 class="h1">Захиалга</h1>
-        <form action="{{'order'}}" method="post" id="orderform">
-          @csrf
+        <form action="{{'order'}}" method="POST" id="orderform">
+          @csrf <!-- {{ csrf_field() }} -->
           <input type="hidden" value="{{$id}}" name="watchid">
           <input type="hidden" value="{{$quanity}}" name="quanity">
           <input type="hidden" value="{{$totalprice}}" name="totalprice">
