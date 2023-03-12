@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/index',  [Commoncontroller::class, 'index'])->name('index');
-Route::post('/index',  [Commoncontroller::class, 'index'])->name('index');
+Route::get('/',  [Commoncontroller::class, 'index'])->name('index');
+Route::post('/',  [Commoncontroller::class, 'index'])->name('index');
 Route::get('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::post('/contact',  [Commoncontroller::class, 'contact'])->name('contact');
 Route::get('/shop',  [Commoncontroller::class, 'shop'])->name('shop');
 Route::post('/shop',  [Commoncontroller::class, 'shop'])->name('shop');
-
 Route::get('/about',  [Commoncontroller::class, 'about'])->name('about');
 Route::get('/history',  [Commoncontroller::class, 'history'])->name('history');
 Route::get('/technology',  [Commoncontroller::class, 'technology'])->name('technology');
@@ -32,9 +31,10 @@ Route::post('/order',  [Commoncontroller::class, 'order'])->name('order');
 Route::get('/order',  [Commoncontroller::class, 'order'])->name('order');
 Route::get('/request',  [Commoncontroller::class, 'request'])->name('request');
 Route::post('/request',  [Commoncontroller::class, 'request'])->name('request');
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/mypage',  [Commoncontroller::class, 'mypage'])->name('mypage');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Auth::routes();
 Route::get('login/facebook', [LoginController::class, 'redirectToProvider'])->name('facebook-login');
 Route::get('login/facebook/callback', [LoginController::class, 'handleProviderCallback'])->name('facebook-logout');

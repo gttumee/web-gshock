@@ -42,17 +42,17 @@ https://templatemo.com/tm-559-zay-shop
                     <a class="navbar-sm-brand text-light text-decoration-none"
                         href="mailto:info@company.com">info@gshock.mn</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">080-1494-7801</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">080-0000-0000</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                    <a class="text-light" href="https://www.facebook.com/profile.php?id=100083758856390" target="_blank" rel="sponsored"><i
                             class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
                             class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://twitter.com/" target="_blank"><i
                             class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
-                            class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    {{-- <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                            class="fab fa-linkedin fa-sm fa-fw"></i></a> --}}
                 </div>
             </div>
         </div>
@@ -138,6 +138,8 @@ https://templatemo.com/tm-559-zay-shop
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end bg-black" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item bg-black" href="{{ route('mypage') }}"> {{ __('Миний хуудас') }}
+                                    </a>
                                     <a class="dropdown-item bg-black" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('гарах') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('index') }}" method="POST" class="d-none">

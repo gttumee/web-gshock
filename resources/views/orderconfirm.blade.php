@@ -7,7 +7,7 @@
 <div class="container-fluid bg-light py-5">
     <div class="col-md-6 m-auto text-center">
       <p class="p-3 mb-2 bg-success text-white">
-        Бидэнд итгэж захилага өгсөнд баяралалаа.<br>
+        Захилага өгсөнд баяралалаа.<br>
         {{$name}} танд захиалга баталгаажиж Монголд буух хугацааг {{$phone}} дугаарт мессежээр мэдээлэх болно.
       </p>
       <p class="p-3 mb-2 bg-secondary text-white">

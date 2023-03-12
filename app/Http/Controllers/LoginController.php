@@ -22,18 +22,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->stateless()->user();
-        $userModel = User::where('facebook_id', $user->id)->first();
-        if (!$userModel) {
-            $userModel = new User([
-                'name' => $user->name,
-                'email' => $user->email,
-                'password' => 'tumee',
-                'facebook_id' => $user->id
-            ]);
-
-            $userModel->save();
-        }
+        $user = Socialite::driver('facebook')->stateless()->user();  
+            $userModel= User::updateOrCreate(
+                ['facebook_id' => $user->id],
+                ['name' => $user->name, 'email' => $user->email, 'password' => 'tumee','facebook_id' => $user->id]
+            );
         // ログインする
         Auth::login($userModel);
         // /homeにリダイレクト

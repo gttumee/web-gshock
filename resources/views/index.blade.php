@@ -104,17 +104,17 @@
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="{{route('shop',['types=analog'])}}"><img src="./assets/img/AWG-M520-1AJF.jpg" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Аналог</h5>
-                <p class="text-center"><a class="btn btn-success">Худалдаж авах</a></p>
+                <p class="text-center"><a class="btn btn-success" href="{{route('shop',['types=analog'])}}">Худалдаж авах</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="{{route('shop',['types=digital'])}}"><img src="./assets/img/GW-B5600HR-1JF.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Дижитал</h2>
-                <p class="text-center"><a class="btn btn-success">Худалдаж авах</a></p>
+                <p class="text-center"><a class="btn btn-success" href="{{route('shop',['types=analog'])}}">Худалдаж авах</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="{{route('request')}}"><img src="./assets/img/others.jpg" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Дагалдах хэрэгсэл захиалах</h2>
-                <p class="text-center"><a class="btn btn-success">Худалдаж авах</a></p>
+                <p class="text-center"><a class="btn btn-success" href="{{route('request')}}">Худалдаж авах</a></p>
             </div>
         </div>
     </section>
@@ -135,7 +135,7 @@
                     <div class="card h-100">
                         <a href="shop-single.html">
                             <a href="{{ route('shopdetail', ['id'=>$items['index']]) }}">
-                            <img src="./assets/img/{{$items['sku']}}.jpg" class="card-img-top" alt="...">
+                            <img src="{{'https://www.casio.com/'.$items['productAssetList']['0']['path']}}" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">

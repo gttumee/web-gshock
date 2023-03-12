@@ -9,15 +9,15 @@
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        Япон улс Токио хот Отакү НишиКата
+                        Япон улс Токио хот
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">080-1494-7801</a>
+                        <a class="text-decoration-none" href="tel:010-020-0340">080-0000-0000</a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <a class="text-decoration-none" href="mailto:info@company.com">info@g-shock.mn</a>
                     </li>
                 </ul>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-auto me-auto">
                 <ul class="list-inline text-left footer-icons">
                     <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                        <a class="text-light text-decoration-none" target="_blank" href="https://www.facebook.com/profile.php?id=100083758856390"><i
                                 class="fab fa-facebook-f fa-lg fa-fw"></i></a>
                     </li>
                     <li class="list-inline-item border border-light rounded-circle text-center">
@@ -65,10 +65,10 @@
                         <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
                                 class="fab fa-twitter fa-lg fa-fw"></i></a>
                     </li>
-                    <li class="list-inline-item border border-light rounded-circle text-center">
+                    {{-- <li class="list-inline-item border border-light rounded-circle text-center">
                         <a class="text-light text-decoration-none" target="_blank"
                             href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <div class="col-auto">

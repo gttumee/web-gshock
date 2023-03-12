@@ -14,6 +14,7 @@
           <input type="hidden" value="{{$quanity}}" name="quanity">
           <input type="hidden" value="{{$totalprice}}" name="totalprice">
           <input type="hidden" value="{{$result}}" name="result">
+          <input type="hidden" value="{{$name}}" name="watch_name">
         <table class="table table-bordered">
             <tbody>
               <tr>
@@ -41,7 +42,7 @@
         </form>
           <div id="errormessages"></div>
           <button class="btn btn-secondary btn-lg" id="cancel">Буцах</button>
-          <button class="btn btn-success btn-lg" id="orderbutton">Баталгаажуулах</button>
+          <button class="btn btn-success btn-lg" id="orderbutton">Үргэлжлүүлэх</button>
           </div>
           <div id="secondorder">
           <h1 class="h1">Төлбөр төлөх </h1>
@@ -58,7 +59,7 @@
               </tr>
               <tr>
                 <th scope="row">Данс Нэр</th>
-                <td>Ганболд Анхтуяа</td>
+                <td>ТЕСТ ТЕСТ</td>
               </tr>
               <tr>
                 <th scope="row">Мөнгөн дүн</th>

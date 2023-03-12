@@ -153,6 +153,7 @@ class Commoncontroller extends Controller
     public function order(Request $request){
         if($request){
             $orderData = new Productorder(); 
+            $watchName = $request->input('watch_name'); 
             $name = $request->input('inputname'); 
             $phone =  $request->input('inputphonenumber'); 
             $ordernumber = $request->input('result'); 
@@ -168,6 +169,8 @@ class Commoncontroller extends Controller
             }
             $orderData->inputphonenumber = $phone;
             $orderData->ordernumber = $ordernumber;
+            $orderData->watch_name = $watchName;
+            $orderData->status = '0';
             $orderData->save();       
             return view('orderconfirm',compact('name','phone','ordernumber'));
             
@@ -206,5 +209,15 @@ class Commoncontroller extends Controller
             
         }
         return view('request');
+    }
+    public function mypage(request $request){
+        if($request->id){
+            Productorder::where('id','=', $request->id)
+            ->update(['status' =>'2']);
+        }
+        $myWatch = Productorder::where([['user_id','=',Auth::user()->id],['status', '<>', '2']])
+        ->orderby('created_at','desc')
+        ->paginate(10);
+        return view('mypage',compact('myWatch'));
     }
 }
