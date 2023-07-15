@@ -10,31 +10,37 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-class Commoncontroller extends Controller
+class Commoncontroller extends Controller 
 {
+    
+    //Ханшийн мээдээлэл авах
+     function rate(){
+        $lastResult = Http::get(config('const.rate_url'))->json();  
+        return round($lastResult[0]['rate_float']);
+      
+    }
+    //url дуудах
+    function shock(){
+        $lastResult = Http::get(config('const.shock_url'));
+         return $lastResult['data']; 
+    }
+    
     public function index(request $request){
-        
         if($request->all()){
-            return redirect('index')->with(Auth::logout());
+            return redirect('/')->with(Auth::logout());
         }
-        
         $orderData = Productorder::distinct('watchid')->get();
         $orderData =Productorder::orderBy('watchid','desc')->distinct()->select('watchid')->get()->take(3);
-        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = round($lastResult[0]['rate_float'])+3;
-        $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
-        $collection = $lastResult['data'];
-        $shopDetailWatchRelated = (collect($collection)->whereIn('index',$orderData->pluck('watchid')->toarray()));
+        $ratePrice =  $this->rate();
+        $shopDetailWatchRelated = (collect($this->shock())->whereIn('index',$orderData->pluck('watchid')->toarray()));
         return view('index',compact('shopDetailWatchRelated','ratePrice'));
     }
 
     //дэлгүүрийн лимт ангилал гарах хэсэг
     public function shop(Request $request){
-        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = round($lastResult[0]['rate_float'])+3;
-        $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
-        $collection=$lastResult['data'];
-        $data = collect($collection)->sortByDesc('releaseDate')->values()->all();
+        $ratePrice =  $this->rate();
+        $collection=$this->shock();
+        $data = collect($this->shock())->sortByDesc('releaseDate')->values()->all();
         //request ээр ямар нэгэн юм ирж байвал шалгана.
             if($request->all()){
 
@@ -101,9 +107,8 @@ class Commoncontroller extends Controller
     
     //цагны дэлгэрэнгүй мэдээлэл гарах хэсэг
     public function shopdetail(Request $request){
-        $lastResult = Http::get("https://monxansh.appspot.com/xansh.json?currency=JPY")->json();
-        $ratePrice = round($lastResult[0]['rate_float'])+3;
-        $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
+        $ratePrice = $this->rate();
+        $lastResult = Http::get(config('const.shock_url'));
         $collection=collect($lastResult['data']); 
         $shopDetailWatchRelateds = collect($collection)->sortByDesc('releaseDate')->values()->all();       
         $shopDetailWatch = $collection->where('index',$request->id)->toArray();
@@ -181,8 +186,7 @@ class Commoncontroller extends Controller
     public function request(Request $request ){
         if( $search = $request->input('search')){
             {
-                $lastResult = Http::get("https://www.casio.com/content/casio/locales/jp/ja/products/watches/gshock/jcr:content/root/responsivegrid/container/product_panel_list_f.products.json");
-                $collection=$lastResult['data'];
+                $collection=$this->shock();
                 $data = collect($collection)->sortByDesc('releaseDate')->values()->all();
                 $data = collect($data)->filter(function ($user) use ($search) {
                    return strpos($user['sku'], strtoupper($search)) !== false;

@@ -9,7 +9,7 @@
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
                         @foreach($shopDetailWatch as $item)    
-                        <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['0']['path']}}" alt="Card image cap" id="product-detail">
+                        <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" alt="Card image cap" id="product-detail">
                     </div>
                     <div class="row">
                         <!--Start Controls-->
@@ -30,21 +30,21 @@
                                         <div class="col-4">
                                             <a href="#">
                                             @if(isset($item['productAssetList']['0']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['0']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" alt="Product Image 1">
                                             @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['1']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['1']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['1']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['2']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['2']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['2']['path']}}" alt="Product Image 1">
                                             @endif
                                         </a>
                                         </div>
@@ -57,21 +57,21 @@
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['3']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['3']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['3']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['4']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['4']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['4']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['5']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['5']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['5']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
@@ -84,21 +84,21 @@
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['6']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['6']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['6']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['7']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['7']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['7']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
                                         <div class="col-4">
                                             <a href="#">
                                                 @if(isset($item['productAssetList']['8']['path']))
-                                                <img class="card-img img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['8']['path']}}" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['8']['path']}}" alt="Product Image 1">
                                                 @endif
                                             </a>
                                         </div>
@@ -133,7 +133,7 @@
                             @if(substr($item['additionalAttributions']['displayType']['0'],94) == 'digital')
                             <p class="h3 py-2">Төрөл: Дижитал </p>
                            @else
-                           <p class="h3 py-2">Төрөл: Дижитал Аналог </p>
+                           <p class="h3 py-2">Төрөл: Дижитал Аналог хосолсон</p>
                            @endif
                             <p class="h3 py-2">Жин: {{$item['weight']}} грам</p>
                             @if(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114) == 'solar')
@@ -186,7 +186,7 @@
                     <div class="product-wap card rounded-0">
                         <div class="card rounded-0">
                             <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}">
-                                <img  class="card-img rounded-0 img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['0']['path']}}" >
+                                <img  class="card-img rounded-0 img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" >
                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                             </div>
                         </div>

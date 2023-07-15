@@ -51,8 +51,6 @@ https://templatemo.com/tm-559-zay-shop
                             class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://twitter.com/" target="_blank"><i
                             class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    {{-- <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
-                            class="fab fa-linkedin fa-sm fa-fw"></i></a> --}}
                 </div>
             </div>
         </div>
@@ -63,20 +61,16 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container d-flex justify-content-between align-items-center">
-            <a href="{{route('index')}}"></a>
-            <img class="logo" src="./assets/img/logo.png" alt="">
-            <!-- <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                G-SHOCK
-            </a> -->
-
+            <a href="{{route('index')}}">
+                <img class="logo" src="./assets/img/logo.png" alt="">
+            </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
-                id="templatemo_main_nav">
+            <div class="collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
@@ -89,42 +83,13 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="{{route('technology')}}">Технологи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('mygshock')}}">Миний G-Shock </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{route('shop')}}">Дэлгүүр</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('request')}}">Захиалга</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Холбоо барих</a>
                         </li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
-                        data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-white mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-white mr-1"></i>
-                        <!-- <span
-                                class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-white">7</span> -->
-                    </a>
-                    {{-- <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-white mr-3"></i> --}}
-                       <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
+                        <li class="nav-item">
+                            @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('facebook-login') }}">
@@ -148,13 +113,11 @@ https://templatemo.com/tm-559-zay-shop
                                 </div>
                             </li>
                         @endguest
+                        </li>
                     </ul>
-                        <!-- <span
-                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-white">+99</span> -->
-                    </a>
+                </div>
                 </div>
             </div>
-
         </div>
     </nav>
 @endsection

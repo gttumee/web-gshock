@@ -65,7 +65,7 @@
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                    <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}"> 
-                                    <img  class="card-img rounded-0 img-fluid" src="{{'https://www.casio.com/'.$item['productAssetList']['0']['path']}}" >
+                                    <img  class="card-img rounded-0 img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" >
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 </div>

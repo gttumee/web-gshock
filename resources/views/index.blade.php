@@ -135,7 +135,7 @@
                     <div class="card h-100">
                         <a href="shop-single.html">
                             <a href="{{ route('shopdetail', ['id'=>$items['index']]) }}">
-                            <img src="{{'https://www.casio.com/'.$items['productAssetList']['0']['path']}}" class="card-img-top" alt="...">
+                            <img src="{{config('const.image').$items['productAssetList']['0']['path']}}" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
