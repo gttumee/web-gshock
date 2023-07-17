@@ -83,7 +83,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="{{route('technology')}}">Технологи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('shop')}}">Дэлгүүр</a>
+                            <a class="nav-link" href="{{route('shop')}}">Захиалга</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Холбоо барих</a>

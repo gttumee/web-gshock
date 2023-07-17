@@ -29,20 +29,20 @@
                 <th scope="row">Нийт үнэ</th>
                 <td>{{number_format($totalprice)}} Төгрөг </td>
               </tr> 
-              <tr>
-                <th scope="row" class="table-success">Өөрийн нэр оруулна уу</th>
-                <td class="table-success"><input type="text" id="inputname" name="inputname" placeholder="Нэр"> </td>
-              </tr>
-              <tr>
-                <th scope="row" class="table-success">Утасны дугаар оруулна уу</th>
-                <td class="table-success"><input type="text" id="inputphonenumber" name="inputphonenumber" placeholder="Утас"> </td>
-              </tr>
             </tbody>
           </table>
         </form>
-          <div id="errormessages"></div>
           <button class="btn btn-secondary btn-lg" id="cancel">Буцах</button>
-          <button class="btn btn-success btn-lg" id="orderbutton">Үргэлжлүүлэх</button>
+          @guest
+          @if (Route::has('login'))
+          <a href="{{ route('facebook-login') }}">
+          <button class="btn btn-primary btn-lg" id="orderbutton">facebook-ээр нэвтрэх</button></br></a>
+          <span>Та захиалга хийхийн тулд заавал өөрийн facebook-ээр хаягаараа нэвтэрнэ үү.
+          </span>
+          @endif
+          @else
+          <button class="btn btn-success btn-lg" id="orderbutton">Үргэлжлүүлэх</button> 
+          @endguest
           </div>
           <div id="secondorder">
           <h1 class="h1">Төлбөр төлөх </h1>

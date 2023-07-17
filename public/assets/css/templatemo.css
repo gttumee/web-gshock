@@ -48,6 +48,10 @@ body, ul, li, p, a, label, input, div {
   font-family: 'Roboto', sans-serif;
   font-size: 22px !important;
 }
+
+.facebook{
+  background-color: #3b5998;
+}
 /* General */
 .logo { 
  height: 1cm;}

@@ -1,4 +1,5 @@
 @section('footer')
+
   <!-- Start Footer -->
   <footer class="bg-black" id="tempaltemo_footer">
     <div class="container">

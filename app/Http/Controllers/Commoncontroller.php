@@ -109,13 +109,20 @@ class Commoncontroller extends Controller
     public function shopdetail(Request $request){
         $ratePrice = $this->rate();
         $lastResult = Http::get(config('const.shock_url'));
-        $collection=collect($lastResult['data']); 
-        $shopDetailWatchRelateds = collect($collection)->sortByDesc('releaseDate')->values()->all();       
-        $shopDetailWatch = $collection->where('index',$request->id)->toArray();
-        $shopDetailWatchRelated =array_slice($shopDetailWatchRelateds,0,8);
-        $battery = substr($collection['70']['additionalAttributions']['batteryAndBatteryLife']['0'],114);
-        $model = substr($collection['150']['additionalAttributions']['displayType']['0'],94);
-        return view('shopdetail',compact('shopDetailWatch','shopDetailWatchRelated','ratePrice'));
+        $collection = collect($lastResult['data']);
+        if(count($collection) > $request->id) {
+            $shopDetailWatchRelateds = collect($collection)->sortByDesc('releaseDate')->values()->all();       
+            $shopDetailWatch = $collection->where('index',$request->id)->toArray();
+            $shopDetailWatchRelated = array_slice($shopDetailWatchRelateds,0,8);
+            $battery = substr($collection['70']['additionalAttributions']['batteryAndBatteryLife']['0'],114);
+            $model = substr($collection['150']['additionalAttributions']['displayType']['0'],94);
+            return view('shopdetail',compact('shopDetailWatch','shopDetailWatchRelated','ratePrice'));
+            
+        }else
+        {
+            return back();
+        }
+     
     }
 
     // холбоо барих хэсэгийг мэдээлэл хадаглах
@@ -176,7 +183,7 @@ class Commoncontroller extends Controller
             $orderData->ordernumber = $ordernumber;
             $orderData->watch_name = $watchName;
             $orderData->status = '0';
-            $orderData->save();       
+            $orderData->save();
             return view('orderconfirm',compact('name','phone','ordernumber'));
             
         }   

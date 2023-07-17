@@ -33,6 +33,10 @@ return [
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
         'redirect' => env('FACEBOOK_CALLBACK_URL'),
+        'page-token' => env('FACEBOOK_PAGE_TOKEN', 'f7682157e6f857bf9d77663e679e53cd'),
+        'version'    => env('FACEBOOK_GRAPH_API_VERSION', '4.0'),
+        'app-secret' => env('FACEBOOK_APP_SECRET', '38ffa930ce2b9d09d059f15cadf60c55')
+        
     ]
 
 ];

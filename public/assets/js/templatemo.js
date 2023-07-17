@@ -91,18 +91,8 @@ $(document).ready(function() {
   $(document).ready(function () {
     $("#secondorder").hide();
     $("#orderbutton").click(function () {
-      var inputphone=$("#inputphonenumber").val();
-      var inputname=$("#inputname").val();
-      if(inputphone && inputname){
         $("#fistorder").hide();
         $("#secondorder").show();
-        $("#phonenumber").text(inputphone);
-        $("#orderinputname").val(inputname);
-      }
-      else
-      {
-        $("#errormessages").show().addClass("p-3 mb-2 bg-danger text-white").text('Та заавал өөрийн нэр болон утасны дугаараа оруулна !!');
-      }
     });
     $('#cancel').on('click', function(e){
       e.preventDefault();
