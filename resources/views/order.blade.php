@@ -10,11 +10,6 @@
         <h1 class="h1">Захиалга</h1>
         <form action="{{'order'}}" method="POST" id="orderform">
           @csrf <!-- {{ csrf_field() }} -->
-          <input type="hidden" value="{{$id}}" name="watchid">
-          <input type="hidden" value="{{$quanity}}" name="quanity">
-          <input type="hidden" value="{{$totalprice}}" name="totalprice">
-          <input type="hidden" value="{{$result}}" name="result">
-          <input type="hidden" value="{{$name}}" name="watch_name">
         <table class="table table-bordered">
             <tbody>
               <tr>
@@ -29,50 +24,55 @@
                 <th scope="row">Нийт үнэ</th>
                 <td>{{number_format($totalprice)}} Төгрөг </td>
               </tr> 
+              <tr>
+                <th scope="row">Нэр<label style="color: red">*</label></th>
+                <td>
+                  <div class="col-md-12">
+                    @if($errors->has('input_name'))
+                    <input type="text" class="form-control is-invalid" id="validationServer03"  name="input_name" value="{{ old('input_name') }}">
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                      <li>{{$errors->first('input_name')}}</li>
+                    </div>
+                    @else
+                    <input type="text" class="form-control" id="validationServer03"  name="input_name"  value="{{ old('input_name') }}" >
+                    @endif
+                  </div>    
+                  </td>
+              </tr> 
+              <tr>
+                <th scope="row">Утасны дугаар<label style="color: red">*</label></th>
+                <td>
+                  <div class="col-md-12">
+                  @if($errors->has('input_phone'))
+                  <input type="text" class="form-control is-invalid" id="validationServer03"  name="input_phone" value="{{ old('input_phone') }}" >
+                  <div id="validationServer03Feedback" class="invalid-feedback">
+                    <li>{{$errors->first('input_phone')}}</li>
+                  </div>
+                  @else
+                  <input type="text" class="form-control" id="validationServer03"  name="input_phone"  value="{{ old('input_phone') }}" >
+                  @endif
+                </div>   
+              </td>
+              </tr> 
+              <tr>
+                <th scope="row">И-мэйл</th>
+                <td><div class="col-md-12">
+                  @if($errors->has('input_address'))
+                  <input type="text" class="form-control is-invalid" id="validationServer03"  name="input_address" value="{{ old('input_address') }}" >
+                  <div id="validationServer03Feedback" class="invalid-feedback">
+                    <li>{{$errors->first('input_address')}}</li>
+                  </div>
+                  @else
+                  <input type="text" class="form-control" id="validationServer03"  name="input_address" value="{{ old('input_address') }}">
+                  @endif
+                </div>   
+              </td>
+              </tr> 
             </tbody>
           </table>
         </form>
-          <button class="btn btn-secondary btn-lg" id="cancel">Буцах</button>
-          @guest
-          @if (Route::has('login'))
-          <a href="{{ route('facebook-login') }}">
-          <button class="btn btn-primary btn-lg" id="orderbutton">facebook-ээр нэвтрэх</button></br></a>
-          <span>Та захиалга хийхийн тулд заавал өөрийн facebook-ээр хаягаараа нэвтэрнэ үү.
-          </span>
-          @endif
-          @else
-          <button class="btn btn-success btn-lg" id="orderbutton">Үргэлжлүүлэх</button> 
-          @endguest
-          </div>
-          <div id="secondorder">
-          <h1 class="h1">Төлбөр төлөх </h1>
-            <h4 class="p-3 mb-2 bg-secondary text-white">Та доорх дансанд төлбөрөө төлснөөр захиалга таны гар утсанд мессэжээр мэдээлэл илгээх болно.</h4>
-          <table class="table table-bordered">
-            <tbody>
-              <tr>
-                <th scope="row">Банк</th>
-                <td>Худалаа хөгжлийн банк</td>
-              </tr>
-              <tr>
-                <th scope="row">Данс дугаар</th>
-                <td>4589898989</td>
-              </tr>
-              <tr>
-                <th scope="row">Данс Нэр</th>
-                <td>ТЕСТ ТЕСТ</td>
-              </tr>
-              <tr>
-                <th scope="row">Мөнгөн дүн</th>
-                <td>{{number_format($totalprice)}} Төгрөг</td>
-              </tr>
-              <tr>
-                <th scope="row">Гүйлгээний утга</th>
-                <td>{{$result}} <p id="phonenumber"></p></td>
-              </tr>
-            </tbody>
-          </table>   
-          <button class="btn btn-secondary btn-lg" id="cancelorder">Буцах</button>
-          <button type="submit" class="btn btn-success btn-lg" form="orderform">Захиалах</button>
+          <button class="btn btn btn-outline-secondary btn-lg" id="cancelorder" onClick="history.back()">Буцах</button>
+          <button type="submit" class="btn btn-outline-dark btn-lg" form="orderform">Захиалах</button>
         </div>
         </div>
 </div>

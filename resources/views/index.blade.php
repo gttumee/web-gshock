@@ -97,24 +97,24 @@
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Категори</h1>
+                <h1 class="h1">Ангилал</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="{{route('shop',['types=analog'])}}"><img src="./assets/img/AWG-M520-1AJF.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="{{route('shop',['types=analog'])}}"><img src="./assets/img/analog.png" class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Аналог</h5>
-                <p class="text-center"><a class="btn btn-success" href="{{route('shop',['types=analog'])}}">Худалдаж авах</a></p>
+                <p class="text-center"><a class="btn btn-outline-dark btn-lg" href="{{route('shop',['types=analog'])}}">Захиалга</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="{{route('shop',['types=digital'])}}"><img src="./assets/img/GW-B5600HR-1JF.jpg" class="rounded-circle img-fluid border"></a>
+                <a href="{{route('shop',['types=digital'])}}"><img src="./assets/img/digital.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Дижитал</h2>
-                <p class="text-center"><a class="btn btn-success" href="{{route('shop',['types=analog'])}}">Худалдаж авах</a></p>
+                <p class="text-center"><a class="btn btn-outline-dark btn-lg" href="{{route('shop',['types=analog'])}}">Захиалга</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="{{route('request')}}"><img src="./assets/img/others.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Дагалдах хэрэгсэл захиалах</h2>
-                <p class="text-center"><a class="btn btn-success" href="{{route('request')}}">Худалдаж авах</a></p>
+                <a href="{{route('request')}}"><img src="./assets/img/digtal_ananlog.png" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Аналог Дижитал хосолсон </h2>
+                <p class="text-center"><a class="btn btn-outline-dark btn-lg" href="{{route('shop',['types=digital-analog'])}}">Захиалга</a></p>
             </div>
         </div>
     </section>
@@ -135,6 +135,9 @@
                     <div class="card h-100">
                         <a href="shop-single.html">
                             <a href="{{ route('shopdetail', ['id'=>$items['index']]) }}">
+                                 @if ((\Carbon\Carbon::parse($items['releaseDate'])->toDateString() > \Carbon\Carbon::today()->subMonths(2)->toDateString()))
+                                <img class="img-fluid" src="./assets/img/new.png" alt="">
+                                @endif  
                             <img src="{{config('const.image').$items['productAssetList']['0']['path']}}" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">

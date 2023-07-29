@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Productorder;
 use App\Models\Requesttable;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -65,7 +66,7 @@ class Commoncontroller extends Controller
                 }
 
                 //дижиталаар филтер хийх үед
-                if($types=$request->types){
+                if($types = $request->types){
                     {
                         $data = collect($data)->filter(function ($user) use ($types) {
                             return (substr($user['additionalAttributions']['displayType']['0'],94)) == $types;
@@ -106,7 +107,7 @@ class Commoncontroller extends Controller
     }
     
     //цагны дэлгэрэнгүй мэдээлэл гарах хэсэг
-    public function shopdetail(Request $request){
+    function shopdetail(Request $request){
         $ratePrice = $this->rate();
         $lastResult = Http::get(config('const.shock_url'));
         $collection = collect($lastResult['data']);
@@ -128,15 +129,33 @@ class Commoncontroller extends Controller
     // холбоо барих хэсэгийг мэдээлэл хадаглах
     public function contact(Request $request){
         if(count($request->all()) > 0) {
-            $saveInfo = new Contact();
-            $saveInfo->name = $request->input('name');
-            $saveInfo->email = $request->input('email');
-            $saveInfo->phone= $request->input('phone');
-            $saveInfo->post = $request->input('message');
-            $saveInfo->save();
-            return redirect()
-            ->route('contact')
-            ->with('message', 'Таны хүсэлт амжилттай илгээгдлээ.');    
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'message' => 'required',
+            ],
+            [
+                'name.required' => 'Та өөрийн нэрээ оруулна уу',
+                'email.required' => 'Өөрийн и-мэйл хаяг оруулна уу',
+                'phone.required' => 'Өөрийн утасны дугаараа оруулна уу',
+                'message.required' => 'Зурвас оруулна уу',
+            ]);
+            if ($validator->fails()) {
+                return redirect()->route("contact")->withErrors($validator->errors());
+              } 
+              else 
+              {
+                $saveInfo = new Contact();
+                $saveInfo->name = $request->input('name');
+                $saveInfo->email = $request->input('email');
+                $saveInfo->phone = $request->input('phone');
+                $saveInfo->post = $request->input('message');
+                $saveInfo->save();
+                return redirect()
+                ->route('contact')
+                ->with('message', 'Таны хүсэлт амжилттай илгээгдлээ.');    
+                }    
             }
             return view('contact'); 
     }
@@ -160,18 +179,46 @@ class Commoncontroller extends Controller
         $quanity = $request->input('product-quanity');
         $totalprice = $price * $quanity;
         $result = str::random(2).date(today()->format('dmY'));
+        $allData = [$id,$name,$price,$quanity,$totalprice,$result]; 
+        session(["alldata"=>$allData]);
         return view('order',compact('totalprice','quanity','name','result','id'));
     }
     public function order(Request $request){
-        if($request){
+        if(count($data = $request->all()) > 0) 
+        {
+            $validator = Validator::make($request->all(), [
+                'input_name' => 'required',
+                'input_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:8',
+            ],
+            [
+                'input_name.required' => 'Та өөрийн нэрээ оруулна уу',
+                'input_name.required' => 'Та өөрийн нэрээ оруулна уу',
+                'input_phone.required' => 'Утасны дугаараа оруулна уу',
+                'input_address.required' => 'Гэрийн хаяг оруулна уу',
+                'input_phone.regex' => 'Утасны дугаар буруу байна',
+                'input_phone.min' => 'Утасны дугаар 8 оронтой байх ёстой',
+            ]);
+            
+            if ($validator->fails()) {
+                $request->session()->flash('_old_input',[
+                    'input_name' => $request->input('input_name'),
+                    'input_phone' => $request->input('input_phone'),
+                    'input_address' => $request->input('input_address'),
+                ]);
+                return back()->withErrors($validator->errors());
+              } 
+              else 
+              {
+            $allData = session("alldata");
             $orderData = new Productorder(); 
-            $watchName = $request->input('watch_name'); 
-            $name = $request->input('inputname'); 
-            $phone =  $request->input('inputphonenumber'); 
-            $ordernumber = $request->input('result'); 
-            $orderData->watchid = $request->input('watchid'); 
-            $orderData->quanity = $request->input('quanity'); 
-            $orderData->totalprice = $request->input('totalprice'); 
+            $watchName = $allData[1];
+            $name = $request->input('input_name'); 
+            $phone =  $request->input('input_phone'); 
+            $address =  $request->input('input_address');
+            $ordernumber = $allData[5]; 
+            $orderData->watchid = $allData[0]; 
+            $orderData->quanity = $allData[3];
+            $orderData->totalprice = $allData[4];; 
             $orderData->inputname = $name;
             if(isset(Auth::user()->id)){
                 $orderData->user_id=Auth::user()->id;
@@ -181,13 +228,16 @@ class Commoncontroller extends Controller
             }
             $orderData->inputphonenumber = $phone;
             $orderData->ordernumber = $ordernumber;
+            $orderData->address = $address;
             $orderData->watch_name = $watchName;
             $orderData->status = '0';
             $orderData->save();
+            session()->forget('alldata');
             return view('orderconfirm',compact('name','phone','ordernumber'));
+        }
             
         }   
-        return view('orderconfirm');
+        return view('order');
     }
 
     public function request(Request $request ){

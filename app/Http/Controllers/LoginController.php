@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
+use PharIo\Manifest\Url;
 
 class LoginController extends Controller
 {
@@ -30,6 +31,6 @@ class LoginController extends Controller
         // ログインする
         Auth::login($userModel);
         // /homeにリダイレクト
-        return Redirect::route('index');
+        return back();
     }
 }

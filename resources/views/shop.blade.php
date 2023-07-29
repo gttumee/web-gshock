@@ -11,7 +11,7 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Баттери төрөлөөр
+                            Баттери төрлөөр
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>  
                         <ul class="collapse show list-unstyled pl-3">
@@ -21,7 +21,7 @@
                     </li>
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Цагны төрөлөөр
+                            Цагны төрлөөр
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
@@ -65,6 +65,9 @@
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                    <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}"> 
+                                    @if ((\Carbon\Carbon::parse($item['releaseDate'])->toDateString() > \Carbon\Carbon::today()->subMonths(2)->toDateString()))
+                                    <img class="img-fluid" src="./assets/img/new.png" alt="">
+                                    @endif 
                                     <img  class="card-img rounded-0 img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" >
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">

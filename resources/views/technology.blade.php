@@ -5,7 +5,7 @@
   <!--Main layout-->
   <main class="mt-4 mb-10">
     <div class="card mb-4 w-auto p-3">
-        <img class="img-thumbnail" alt="Cinque Terre" src="assets/img/technology_resist.jpg">
+        <img class="img-thumbnail" alt="Cinque Terre" src="assets/img/g-shock_2.jpg">
         <div class="card-body">
           <h5 class="card-title">ЗОХИОН БҮТЭЭГЧ</h5>
           Анхны G-SHOCK-ийг бүтээсэн өвөрмөц кейсийн бүтэц. "Цохилтыг резинэн бөмбөгөөр дамжуулж болохгүй" гэсэн санаан дээр 

@@ -22,29 +22,49 @@
         <div class="alert alert-success">{{session('message')}}</div>
             @endif
                 <div class="form-group col-md-6 mb-3">
-                    <label for="inputname">Нэр</label>
+                    <label for="inputname">Нэр </label><label style="color: red">*</label>
                     <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Нэр">
+                    @if($errors->has('name'))
+                    @foreach($errors->get('name') as $message)
+                    <p class="text-danger">{{ $message }}</p>  <br>
+                    @endforeach
+                   @endif
                 </div>
                 <div class="form-group col-md-6 mb-3">
-                    <label for="inputemail">И-мэйл</label>
+                    <label for="inputemail">И-мэйл</label><label style="color: red">*</label>
                     <input type="email" class="form-control mt-1" id="email" name="email" placeholder="И-мэйл"  type="text" required="required"
                     oninvalid="this.setCustomValidity('И-мэйл оруулна уу')"
                     onvalid="this.setCustomValidity('')">
+                    @if($errors->has('email'))
+                    @foreach($errors->get('email') as $message)
+                    <p class="text-danger">{{ $message }}</p>  <br>
+                    @endforeach
+                   @endif
                 </div>
             </div>
             <div class="mb-3">
-                <label for="inputsubject">Утас</label>
+                <label for="inputsubject">Утас</label><label style="color: red">*</label>
                 <input type="text" class="form-control mt-1" id="phone" name="phone" placeholder="Утас" required="required"
                 oninvalid="this.setCustomValidit('Утасны дугаар оруулна уу')"
                 onvalid="this.setCustomValidit('')">
+                @if($errors->has('phone'))
+                    @foreach($errors->get('phone') as $message)
+                    <p class="text-danger">{{ $message }}</p>  <br>
+                    @endforeach
+                   @endif
             </div>
             <div class="mb-3">
-                <label for="inputmessage">Мэссэж</label>
+                <label for="inputmessage">Мэссэж</label><label style="color: red">*</label>
                 <textarea class="form-control mt-1" id="message" name="message" placeholder="Мэссэж" rows="8"></textarea>
+                @if($errors->has('message'))
+                @foreach($errors->get('message') as $message)
+                <p class="text-danger">{{ $message }}</p>  <br>
+                @endforeach
+               @endif
             </div>
             <div class="row">
                 <div class="col text-end mt-2">
-                    <button type="submit" class="btn btn-success btn-lg px-3">Илгээх</button>
+                    <button type="submit" class="btn btn-outline-dark btn-lg">Илгээх</button>
                 </div>
             </div>
         </form>

@@ -72,14 +72,14 @@
                     </li> --}}
                 </ul>
             </div>
-            <div class="col-auto">
+            {{-- <div class="col-auto">
                 <label class="sr-only" for="subscribeEmail">Email address</label>
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail"
+                    <input type="text" class="form-control bg-light border-light" id="subscribeEmail"
                         placeholder="И-мэйл">
-                    <div class="input-group-text btn-success text-light">Бүртгүүлэх</div>
+                    <button class="input-group-text btn-secondary text-light">Бүртгүүлэх</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 
