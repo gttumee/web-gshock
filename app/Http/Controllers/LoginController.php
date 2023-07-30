@@ -31,6 +31,6 @@ class LoginController extends Controller
         // ログインする
         Auth::login($userModel);
         // /homeにリダイレクト
-        return back();
+        return redirect('/shop');
     }
 }

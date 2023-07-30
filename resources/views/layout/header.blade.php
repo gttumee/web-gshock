@@ -40,9 +40,9 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="mailto:info@company.com">info@gshock.mn</a>
+                        href="mailto:info@company.com">info@g-trade.mn</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">080-0000-0000</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">080-1494-7801</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://www.facebook.com/profile.php?id=100083758856390" target="_blank" rel="sponsored"><i
@@ -83,12 +83,12 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="{{route('technology')}}">Технологи</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('shop')}}">Захиалга</a>
+                            <a class="nav-link" href="{{route('shop')}}">Дэлгүүр</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('contact')}}">Холбоо барих</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item">    
                             @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

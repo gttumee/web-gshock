@@ -165,9 +165,20 @@
                                     </div>
                                 </div>
                                 <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-bs-target="#exampleModalCenter">Захиалах</button>
-                                    </div>
+                                    <ul class="navbar-nav ms-auto">
+                                        <!-- Authentication Links -->
+                                        @guest
+                                            @if (Route::has('login'))
+                                            <div class="col d-grid">
+                                                <a class="btn btn-outline-dark btn-lg"  href="{{ route('facebook-login','sdsadsad') }}">facebook-ээрээ нэвтрэх</a>
+                                            </div>
+                                            @endif
+                                        @else
+                                        <div class="col d-grid">
+                                            <button type="submit" class="btn btn-outline-dark btn-lg" data-toggle="modal" data-bs-target="#exampleModalCenter">Захиалах</button>
+                                        </div>
+                                        @endguest
+                                    </ul>
                                 </div>
                         </div>
                     </div>

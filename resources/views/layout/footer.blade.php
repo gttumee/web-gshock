@@ -6,7 +6,7 @@
         <div class="row">
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-white border-bottom pb-3 border-light logo">G-Shock.mn</h2>
+                <h2 class="h2 text-white border-bottom pb-3 border-light logo">G-trade.mn</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
@@ -14,11 +14,11 @@
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">080-0000-0000</a>
+                        <a class="text-decoration-none" href="tel:010-020-0340">77889171</a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@g-shock.mn</a>
+                        <a class="text-decoration-none" href="mailto:info@company.com">info@g-trade.mn</a>
                     </li>
                 </ul>
             </div>
@@ -26,10 +26,9 @@
             <div class="col-md-4 pt-5">
                 <h2 class="h2 text-light border-bottom pb-3 border-light">Цагны төрөл</h2>
                 <ul class="list-unstyled text-light footer-link-list">
-                    <li><a class="text-decoration-none" href="#">Аналог</a></li>
-                    <li><a class="text-decoration-none" href="#">Дижитал</a></li>
-                    <li><a class="text-decoration-none" href="#">Хэрэгсэл</a></li>
-                    <li><a class="text-decoration-none" href="#">Бусад</a></li>
+                    <li><a class="text-decoration-none" href="{{route('shop',['types=analog'])}}">Аналог</a></li>
+                    <li><a class="text-decoration-none" href="{{route('shop',['types=digital'])}}">Дижитал</a></li>
+                    <li><a class="text-decoration-none" href="{{route('shop',['types=digital-analog'])}}">Аналог Дижитал хосолсон </a></li>
                 </ul>
             </div>
 
@@ -39,9 +38,7 @@
                     <li><a class="text-decoration-none" href={{route('index')}}>Эхлэл</a></li>
                     <li><a class="text-decoration-none" href={{route('history')}}>G-Shock түүх</a></li>
                     <li><a class="text-decoration-none" href={{route('technology')}}>G-Shock технологи</a></li>
-                    <li><a class="text-decoration-none" href={{route('mygshock')}}>Миний G-Shock</a></li>
                     <li><a class="text-decoration-none" href="{{route('shop')}}">Дэлгүүр</a></li>
-                    <li><a class="text-decoration-none" href="{{route('request')}}">Захиалга</a></li>
                     <li><a class="text-decoration-none" href="{{route('contact')}}">Холбоо барих</a></li>
                 </ul>
             </div>
@@ -66,20 +63,8 @@
                         <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
                                 class="fab fa-twitter fa-lg fa-fw"></i></a>
                     </li>
-                    {{-- <li class="list-inline-item border border-light rounded-circle text-center">
-                        <a class="text-light text-decoration-none" target="_blank"
-                            href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                    </li> --}}
                 </ul>
             </div>
-            {{-- <div class="col-auto">
-                <label class="sr-only" for="subscribeEmail">Email address</label>
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control bg-light border-light" id="subscribeEmail"
-                        placeholder="И-мэйл">
-                    <button class="input-group-text btn-secondary text-light">Бүртгүүлэх</button>
-                </div>
-            </div> --}}
         </div>
     </div>
 
@@ -88,7 +73,7 @@
             <div class="row pt-2">
                 <div class="col-12">
                     <p class="text-left text-light">
-                        Copyright &copy; 2023 Gshock.mn
+                        Copyright &copy; 2023 G-trade.mn
                     </p>
                 </div>
             </div>

@@ -53,21 +53,7 @@
                   @endif
                 </div>   
               </td>
-              </tr> 
-              <tr>
-                <th scope="row">И-мэйл</th>
-                <td><div class="col-md-12">
-                  @if($errors->has('input_address'))
-                  <input type="text" class="form-control is-invalid" id="validationServer03"  name="input_address" value="{{ old('input_address') }}" >
-                  <div id="validationServer03Feedback" class="invalid-feedback">
-                    <li>{{$errors->first('input_address')}}</li>
-                  </div>
-                  @else
-                  <input type="text" class="form-control" id="validationServer03"  name="input_address" value="{{ old('input_address') }}">
-                  @endif
-                </div>   
-              </td>
-              </tr> 
+              </tr>  
             </tbody>
           </table>
         </form>

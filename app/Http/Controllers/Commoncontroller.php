@@ -272,11 +272,24 @@ class Commoncontroller extends Controller
         return view('request');
     }
     public function mypage(request $request){
+
         if($request->id){
             Productorder::where('id','=', $request->id)
-            ->update(['status' =>'2']);
+            ->update(['status' =>'10']);
         }
-        $myWatch = Productorder::where([['user_id','=',Auth::user()->id],['status', '<>', '2']])
+        if(Auth::user()->email == 'tmkee0525@gmail.com'){
+            $myWatch = Productorder::first()
+            ->orderby('created_at','desc')
+            ->paginate(10); 
+            
+            if($request->id){
+                $watchStatus = $request->status;
+                Productorder::where('id','=', $request->id)
+                ->update(['status' =>$watchStatus]);
+            }
+            return view('admin',compact('myWatch'));
+        }
+        $myWatch = Productorder::where([['user_id','=',Auth::user()->id],['status', '<>', '10']])
         ->orderby('created_at','desc')
         ->paginate(10);
         return view('mypage',compact('myWatch'));

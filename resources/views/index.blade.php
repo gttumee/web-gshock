@@ -112,7 +112,7 @@
                 <p class="text-center"><a class="btn btn-outline-dark btn-lg" href="{{route('shop',['types=analog'])}}">Захиалга</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="{{route('request')}}"><img src="./assets/img/digtal_ananlog.png" class="rounded-circle img-fluid border"></a>
+                <a href="{{route('shop',['types=digital-analog'])}}"><img src="./assets/img/digtal_ananlog.png" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Аналог Дижитал хосолсон </h2>
                 <p class="text-center"><a class="btn btn-outline-dark btn-lg" href="{{route('shop',['types=digital-analog'])}}">Захиалга</a></p>
             </div>
