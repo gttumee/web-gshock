@@ -208,7 +208,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <a href="shop-single.html" class="h4 text-decoration-none">{{$item['sku']}}</a>
+                            <a href="shop-single.html" class="h5 text-decoration-none">{{$item['sku']}}</a>
                             <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                 <li>{{ \Carbon\Carbon::parse($item['releaseDate'])->format('Y оны m сар')}}</li>
                                 <li class="pt-2">
