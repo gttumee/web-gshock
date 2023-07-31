@@ -37,16 +37,16 @@
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
                                 <li class="list-inline-item">
-                                    <a class="h3 text-dark text-decoration-none mr-3"  href="{{route('shop',['type=low'])}}">Хямд ↓</a>
+                                    <a class="h4 text-dark text-decoration-none mr-3"  href="{{route('shop',['type=low'])}}">Хямд ↓</a>
                                 </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="{{route('shop',['type=higth'])}}">Үнэтэй ↑</a>
+                                <a class="h4 text-dark text-decoration-none mr-3" href="{{route('shop',['type=higth'])}}">Үнэтэй ↑</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=new'])}}">Шинэ↑</a>
+                                <a class="h4 text-dark text-decoration-none"  href="{{route('shop',['type=new'])}}">Шинэ↑</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none"  href="{{route('shop',['type=old'])}}">Хуучин ↓</a>
+                                <a class="h4 text-dark text-decoration-none"  href="{{route('shop',['type=old'])}}">Хуучин ↓</a>
                             </li>
                         </ul>
                     </div>
