@@ -294,4 +294,7 @@ class Commoncontroller extends Controller
         ->paginate(10);
         return view('mypage',compact('myWatch'));
     }
+    public function login(){
+        return view('login');
+    }
 }

@@ -32,6 +32,7 @@ Route::post('/order',  [Commoncontroller::class, 'order'])->name('order');
 Route::get('/request',  [Commoncontroller::class, 'request'])->name('request');
 Route::post('/request',  [Commoncontroller::class, 'request'])->name('request');
 Route::get('/mypage',  [Commoncontroller::class, 'mypage'])->name('mypage');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

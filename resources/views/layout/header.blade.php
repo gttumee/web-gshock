@@ -23,6 +23,8 @@
         <!-- Slick -->
         <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <!--
     
 TemplateMo 559 Zay Shop
@@ -92,14 +94,18 @@ https://templatemo.com/tm-559-zay-shop
                             @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('facebook-login') }}">
-                                        <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i>{{ __('Нэвтрэх') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        <i class="me-1"></i>{{ __('Нэвтрэх') }}</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">
+                                        <i class="me-1"></i>{{ __('Бүртгүүлэх') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fab fa-facebook-f fa-sm fa-fw me-2"></i>{{ Auth::user()->name }}
+                                    <i></i>{{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end bg-black" aria-labelledby="navbarDropdown">
