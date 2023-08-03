@@ -1,5 +1,5 @@
 @extends('layout.common')
-@section('title', 'Технологи')
+@section('title', 'Нэвтрэх')
 @include('layout.header')
 @section('content')
 <section class="vh-50 gradient-custom">
@@ -12,9 +12,9 @@
               @csrf
             <div class="mb-md-5 mt-md-4 pb-5">
               <h2 class="fw-bold mb-2 text-uppercase">Нэвтрэх</h2>
-              <p class="fw-bold mb-2 text-uppercase">Та имэйл/утасны дугаар, нууц үгээ оруулна уу!</p>
+              <p class="fw-bold mb-2 text-uppercase">Та и-мэйлмэйл нууц үгээ оруулна уу!</p>
               <div class="form-outline form-white mb-4">
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="И-мэйл / Утасны дугаар" />
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="И-мэйл" />
                 @error('email')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
               </div>
@@ -28,9 +28,8 @@
                 <div class="col-md-5 offset-md-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                         <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
+                            {{ __('Нууц үг санах ') }}
                         </label>
                     </div>
                 </div>
@@ -40,19 +39,19 @@
                   <button class="btn btn-outline-light btn-lg px-5" type="submit">Нэвтрэх</button>
                 </div>
            </div>
-           <div>
-            @if (Route::has('password.request'))
-            <a class="btn btn-link" href="{{ route('password.request') }}">
-                {{ __('Нууц үг мартсан') }}
-            </a>
-            @endif
-            <p class="mb-0"> <a href="#!" class="fw-bold mb-2 text-uppercase">Шинээр бүртгүүлэх</a>
-            </p>
-          </div>
+           
           </form>
+          </div>
+          <div>
+            @if (Route::has('password.request'))
+            <p class="mb-0"> <a href="{{ route('password.request') }}" class="text-light bg-dark">Нууц үг мартсан</a>
+            @endif
+            <p class="mb-0"> <a href="{{ route('register') }}" class="text-light bg-dark">Шинээр бүртгүүлэх</a>
+            </p>
           </div>
       </div>
     </div>
+    
   </div>
 </section>
 @endsection

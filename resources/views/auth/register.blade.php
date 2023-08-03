@@ -1,6 +1,6 @@
 
 @extends('layout.common')
-@section('title', 'Технологи')
+@section('title', 'Бүргүүлэх')
 @include('layout.header')
 @section('content')
 <section class="vh-50 gradient-custom">
