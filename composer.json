@@ -6,11 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "casperlaitw/laravel-fb-messenger": "^3.0",
         "doctrine/dbal": "^3.3",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel-notification-channels/facebook": "^0.3.0",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.6",
