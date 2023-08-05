@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMail;
 use App\Models\Contact;
 use App\Models\Productorder;
 use App\Models\Requesttable;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class Commoncontroller extends Controller 
@@ -183,6 +185,7 @@ class Commoncontroller extends Controller
         session(["alldata"=>$allData]);
         return view('order',compact('totalprice','quanity','name','result','id'));
     }
+
     public function order(Request $request){
         if(count($data = $request->all()) > 0) 
         {
@@ -215,10 +218,12 @@ class Commoncontroller extends Controller
             $name = $request->input('input_name'); 
             $phone =  $request->input('input_phone'); 
             $address =  $request->input('input_address');
+            $allprice = $allData[4];
+            $quanity = $allData[3];
             $ordernumber = $allData[5]; 
             $orderData->watchid = $allData[0]; 
-            $orderData->quanity = $allData[3];
-            $orderData->totalprice = $allData[4];; 
+            $orderData->quanity = $quanity;
+            $orderData->totalprice =  $allprice;
             $orderData->inputname = $name;
             if(isset(Auth::user()->id)){
                 $orderData->user_id=Auth::user()->id;
@@ -232,6 +237,7 @@ class Commoncontroller extends Controller
             $orderData->watch_name = $watchName;
             $orderData->status = '0';
             $orderData->save();
+            Mail::send(new OrderMail($name,$orderData->user_id=Auth::user()->email,$ordernumber,$allprice,$watchName,$quanity));
             session()->forget('alldata');
             return view('orderconfirm',compact('name','phone','ordernumber'));
         }
