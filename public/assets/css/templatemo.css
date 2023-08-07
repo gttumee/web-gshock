@@ -209,3 +209,6 @@ body, ul, li, p, a, label, input, div {
   padding-left: 20px;
   padding-right: 20px;
 }
+/* .hidezurag{
+  background: url({{config('const.image').$item['productAssetList']['0']['path']}});
+} */

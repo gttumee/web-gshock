@@ -14,7 +14,7 @@ class AddAddressToProductorders extends Migration
     public function up()
     {
         Schema::table('productorders', function (Blueprint $table) {
-            $table->text('address');
+            $table->text('address')->nullable();
         });
     }
 

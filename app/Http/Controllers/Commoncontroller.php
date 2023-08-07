@@ -237,7 +237,7 @@ class Commoncontroller extends Controller
             $orderData->watch_name = $watchName;
             $orderData->status = '0';
             $orderData->save();
-            Mail::send(new OrderMail($name,$orderData->user_id=Auth::user()->email,$ordernumber,$allprice,$watchName,$quanity));
+            Mail::send(new OrderMail($name,$orderData->user_id=Auth::user()->email,$ordernumber,$allprice,$watchName,$quanity,$phone));
             session()->forget('alldata');
             return view('orderconfirm',compact('name','phone','ordernumber'));
         }

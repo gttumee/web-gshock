@@ -16,7 +16,7 @@ class OrderMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $email,$ordernumber,$allprice,$watchName,$quanity)
+    public function __construct($name, $email,$ordernumber,$allprice,$watchName,$quanity,$phone)
     {
         $this->name = $name;
         $this->email = $email;
@@ -24,6 +24,8 @@ class OrderMail extends Mailable
         $this->allprice = $allprice;
         $this->watchName = $watchName;
         $this->quanity = $quanity;
+        $this->phone = $phone;
+
     }
 
     /**
@@ -42,6 +44,7 @@ class OrderMail extends Mailable
                 'allprice' => $this->allprice,
                 'watchName' => $this->watchName,
                 'quanity' => $this->quanity,
+                'phone' => $this->phone,
             ]);
     }
     }

@@ -40,7 +40,9 @@ Auth::routes();
 Route::get('login/facebook', [LoginController::class, 'redirectToProvider'])->name('facebook-login');
 Route::get('login/facebook/callback', [LoginController::class, 'handleProviderCallback'])->name('facebook-logout');
 
-
+route::get('mail',function(){
+    return  view('ordermail');
+});
 
 
 
