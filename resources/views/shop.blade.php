@@ -11,11 +11,11 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Баттери төрлөөр
+                            Батерейний төрлөөр
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>  
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="{{route('shop',['battery=other'])}}">Баттери </a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['battery=other'])}}">Батерей </a></li>
                             <li><a class="text-decoration-none" href="{{route('shop',['battery=solar'])}}">Нарны зай хураагуур</a></li>
                         </ul>
                     </li>
@@ -51,7 +51,8 @@
                         </ul>
                     </div>
                     <div class="col-md-4 pb-3">
-                    <form accept="get" action="{{ route('shop') }}" >
+                    <form  action="{{ route('shop') }}" accept="get" enctype="application/x-www-form-urlencoded	" >
+                        @csrf
                    <div class="input-group">
                     <input type="search" class="form-control rounded" placeholder="хайх" aria-label="хайлт" aria-describedby="search-addon" name="search"/>
                     <button type="submit" class="btn btn-success btn-lg px-3"><i class="fas fa-search"></i></button>
@@ -74,8 +75,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}" class="h3 text-decoration-none">{{$item['sku']}}</a></br>
-                               
+                                <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}" class="h3 text-decoration-none">{{$item['sku']}}</a></br>   
                                 <a href="{{ route('shopdetail', ['id'=>$item['index']]) }}" class="h3 text-decoration-none"> {{ \Carbon\Carbon::parse($item['releaseDate'])->format('Y оны m сар')}}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li class="pt-2">
@@ -91,7 +91,7 @@
                                             class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0 fw-bold">{{number_format($item['listPrice']* $ratePrice)}}₮</p>
+                                <p class="text-center mb-0 fw-bold">{{number_format($item['listPrice']* $ratePrice+config('const.une'))}}₮</p>
                             </div>
                         </div>
                     </div>

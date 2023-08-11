@@ -103,7 +103,7 @@
             <div class="row pt-2">
                 <div class="col-12">
                     <p class="text-left text-light">
-                        Copyright &copy; 2023 G-trade.mn
+                        Copyright &copy; 2023 mgshock.com
                     </p>
                 </div>
             </div>

@@ -34,6 +34,14 @@
                 text-align: center !important;
             }
         }
+
+        /* {{ $name='name',
+       $watchName="name",
+       $quanity="name",
+       $allprice=10000,
+       $ordernumber="name",
+       $phone="name",}} */
+      
     
         div[style*="margin: 16px 0;"] { margin: 0 !important; }
         </style>
@@ -125,8 +133,8 @@
                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
                             <tr>
                                 <td align="left" style="padding-top: 20px;">
-                                    <table cellspacing="0" cellpadding=50"0" border="1" width="100%">
-                                        <tr　 border="1">
+                                    <table cellspacing="0" cellpadding=50"0" width="100%">
+                                        <tr>
                                             <td width="40%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
                                                 Дансы мэдээлэл
                                             </td>

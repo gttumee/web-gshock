@@ -125,12 +125,13 @@
                     <div class="card">
                         <div class="card-body">
                             <form action={{route("orderconfirm")}} method="get"> 
+                                @csrf
                                 @if ((\Carbon\Carbon::parse($item['releaseDate'])->toDateString() > \Carbon\Carbon::today()->subMonths(2)->toDateString()))
                                 <img class="img-fluid" src="./assets/img/new.png" alt="">
                                 @endif         
                             <input type="hidden" name="id" value="{{$item['index']}}">
                             <h1 class="h2"><input type="hidden" name="name" value="{{$item['sku']}}">{{$item['sku']}}</h1>
-                            <p class="h3 py-2"><input type="hidden" name="price" value="{{$item['listPrice'] * $ratePrice}}"> Үнэ: {{number_format($item['listPrice'] * $ratePrice)}} төгрөг</p>
+                            <p class="h3 py-2"><input type="hidden" name="price" value="{{$item['listPrice'] * $ratePrice}}"> Үнэ: {{number_format($item['listPrice'] * $ratePrice+config('const.une'))}} төгрөг</p>
                             @if(substr($item['additionalAttributions']['displayType']['0'],94) == 'analog')
                             <p class="h3 py-2"><input type="hidden"> Төрөл: Аналог </p>
                             @endif
@@ -141,13 +142,13 @@
                            @endif
                             <p class="h3 py-2">Жин: {{$item['weight']}} грам</p>
                             @if(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114) == 'solar')
-                            <p class="h3 py-2">Баттерны төрөл: Нарны зай хураагуур</p>
-                            <p class="h3 py-2">Баттерны цэнэг: Нарны зай хураагуур</p>
+                            <p class="h3 py-2">Батерей: Нарны зай хураагуур</p>
+                            <p class="h3 py-2">Цэнэг: Нарны зай хураагуур</p>
                             @elseif(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],111) == 'wireless_02')
-                            <p class="h3 py-2">Баттерны төрөл: Нарны зай Type-A USB цэнэглэгч</p>
-                            <p class="h3 py-2">Баттерны цэнэг: Нарны зай Type-A USB цэнэглэгч</p>
+                            <p class="h3 py-2">Батерей: Нарны зай Type-A USB цэнэглэгч</p>
+                            <p class="h3 py-2">Цэнэг: Нарны зай Type-A USB цэнэглэгч</p>
                             @else
-                            <p class="h3 py-2">Баттерны цэнэг: {{substr(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114,),0,1)}} жил</p>
+                            <p class="h3 py-2">Цэнэг: {{substr(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114,),0,1)}} жил</p>
                             @endif
                               @endforeach
                                 <input type="hidden" name="product-title" value="Activewear">
@@ -184,7 +185,9 @@
                                                       <div class="alert alert-warning d-flex align-items-center" role="alert">
                                                         <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#info-fill"/></svg>
                                                         <div>
-                                                            Захиалга хийхийн тулд заавал нэвтэрсэн байх шаардлагтай!!
+                                                            Захиалга хийхийн тулд заавал нэвтэрсэн байх шаардлагтай!!</br>
+                                                            Хэрэв бүртгэлгүйгээр захиалга хийх бол доорх мессежээр холбоо барина уу.
+
                                                         </div>
                                                       </div>
                                                 <a class="btn btn-outline-dark btn-lg"  href="{{ route('login') }}">Нэвтрэх</a>
@@ -236,7 +239,7 @@
                                     <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                 </li>
                             </ul>
-                            <p class="text-center mb-0">{{number_format($item['listPrice']* $ratePrice)}}₮</p>
+                            <p class="text-center mb-0">{{number_format($item['listPrice']* $ratePrice+config('const.une'))}}₮</p>
                         </div>
                     </div>
                 </div>

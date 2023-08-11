@@ -9,7 +9,7 @@
       <div id="fistorder">
         <h1 class="h1">Захиалга</h1>
         <form action="{{'order'}}" method="POST" id="orderform">
-          @csrf <!-- {{ csrf_field() }} -->
+          @csrf 
         <table class="table table-bordered">
             <tbody>
               <tr>

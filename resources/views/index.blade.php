@@ -146,7 +146,7 @@
                             </ul>
                             {{ \Carbon\Carbon::parse($items['releaseDate'])->format('Y оны m сар')}}
                             <p class="card-text">
-                                <p class="text-center mb-0">{{number_format($items['listPrice']* $ratePrice)}}₮</p>
+                                <p class="text-center mb-0">{{number_format($items['listPrice']* $ratePrice+config('const.une'))}}₮</p>
                             </p>
                         </div>
                     </div>
