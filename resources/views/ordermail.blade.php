@@ -34,14 +34,6 @@
                 text-align: center !important;
             }
         }
-
-        /* {{ $name='name',
-       $watchName="name",
-       $quanity="name",
-       $allprice=10000,
-       $ordernumber="name",
-       $phone="name",}} */
-      
     
         div[style*="margin: 16px 0;"] { margin: 0 !important; }
         </style>
