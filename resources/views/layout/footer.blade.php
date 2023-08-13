@@ -10,7 +10,7 @@
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        БЗД 5-хороо тарвалин хотхон 48д 60 тоот
+                        БЗД 5-хороо
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
