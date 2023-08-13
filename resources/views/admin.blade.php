@@ -52,7 +52,7 @@
                     <td> {{$items->inputphonenumber}}</td>
                     <td>{{$items->quanity}}</td>
                     <td>{{number_format($items->totalprice)}}₮</td>
-                    <td>{{ \Carbon\Carbon::parse($items->create_at)->format('Y-m-d')}}</td>
+                    <td>{{ \Carbon\Carbon::parse($items->create_at)}}</td>
                     <td>
                         <a href="{{ route('mypage', ['id'=>$items->id,'status'=>'0']) }}" class="btn btn-warning" onclick="return confirm('Та цуцлахдаа итгэлтэй байна уу')">Төлөгдөөгүй</a></br>
                         <a href="{{ route('mypage', ['id'=>$items->id,'status'=>'1']) }}" class="btn btn-info" onclick="return confirm('Төлсөн рүү шилжүүлхэд итгэлтэй байна уу')">Төлөгдсөн</a></br>

@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 
 class Commoncontroller extends Controller 
 {
@@ -175,15 +174,22 @@ class Commoncontroller extends Controller
     }
     
     public function orderconfirm(Request $request){
-        $id = $request->input('id');
-        $name = $request->input('name');
-        $price = $request->input('price');
-        $quanity = $request->input('product-quanity');
-        $totalprice = $price * $quanity;
-        $result = str_pad(random_int(0,99999999),8,0, STR_PAD_LEFT);
-        $allData = [$id,$name,$price,$quanity,$totalprice,$result]; 
-        session(["alldata"=>$allData]);
-        return view('order',compact('totalprice','quanity','name','result','id'));
+        if(Auth::user()){
+            $id = $request->input('id');
+            $name = $request->input('name');
+            $price = $request->input('price');
+            $quanity = $request->input('product-quanity');
+            $totalprice = $price * $quanity;
+            $result = str_pad(random_int(0,99999999),8,0, STR_PAD_LEFT);
+            $allData = [$id,$name,$price,$quanity,$totalprice,$result]; 
+            session(["alldata"=>$allData]);
+            return view('order',compact('totalprice','quanity','name','result','id'));
+
+        }else
+        {
+            return back();
+        }
+       
     }
 
     public function order(Request $request){
@@ -278,28 +284,33 @@ class Commoncontroller extends Controller
         return view('request');
     }
     public function mypage(request $request){
-        dd($request->all());
-
-        if($request->id){
-            Productorder::where('id','=', $request->id)
-            ->update(['status' =>'10']);
-        }
-        if(Auth::user()->email == 'tmkee0525@gmail.com'){
-            $myWatch = Productorder::first()
-            ->orderby('created_at','desc')
-            ->paginate(10); 
-            
+        if(Auth::user()){
             if($request->id){
-                $watchStatus = $request->status;
                 Productorder::where('id','=', $request->id)
-                ->update(['status' =>$watchStatus]);
+                ->update(['status' =>'10']);
             }
-            return view('admin',compact('myWatch'));
+            if(Auth::user()->email == 'tmkee0525@gmail.com'){
+                $myWatch = Productorder::first()
+                ->orderby('created_at','desc')
+                ->paginate(10); 
+                
+                if($request->id){
+                    $watchStatus = $request->status;
+                    Productorder::where('id','=', $request->id)
+                    ->update(['status' =>$watchStatus]);
+                }
+                return view('admin',compact('myWatch'));
+            }
+            $myWatch = Productorder::where([['user_id','=',Auth::user()->id],['status', '<>', '10']])
+            ->orderby('created_at','desc')
+            ->paginate(10);
+            return view('mypage',compact('myWatch'));
+        }else
+        {
+            return back();
         }
-        $myWatch = Productorder::where([['user_id','=',Auth::user()->id],['status', '<>', '10']])
-        ->orderby('created_at','desc')
-        ->paginate(10);
-        return view('mypage',compact('myWatch'));
+    
+       
     }
     public function login(){
         return view('login');
