@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>G-Shock mongolia</title>
+    <title> {{config('const.domain')}}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,9 +42,9 @@ https://templatemo.com/tm-559-zay-shop
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none"
-                        href="mailto:info@company.com">info@g-trade.mn</a>
+                        href="mailto:info@company.com">info@g-shock.mn</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">080-1494-7801</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">77885171</a>
                 </div>
                 <div>
                     <a class="text-light" href="https://www.facebook.com/profile.php?id=100083758856390" target="_blank" rel="sponsored"><i

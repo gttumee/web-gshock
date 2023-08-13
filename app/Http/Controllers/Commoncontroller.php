@@ -180,7 +180,7 @@ class Commoncontroller extends Controller
         $price = $request->input('price');
         $quanity = $request->input('product-quanity');
         $totalprice = $price * $quanity;
-        $result = str::random(2).date(today()->format('dmY'));
+        $result = str_pad(random_int(0,99999999),8,0, STR_PAD_LEFT);
         $allData = [$id,$name,$price,$quanity,$totalprice,$result]; 
         session(["alldata"=>$allData]);
         return view('order',compact('totalprice','quanity','name','result','id'));
@@ -278,6 +278,7 @@ class Commoncontroller extends Controller
         return view('request');
     }
     public function mypage(request $request){
+        dd($request->all());
 
         if($request->id){
             Productorder::where('id','=', $request->id)

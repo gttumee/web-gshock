@@ -29,7 +29,7 @@
                             <li class="text-muted text-right">Нийт үнэ: {{number_format($items->totalprice)}}₮</li>
                         </ul>
                         <ul class="list-unstyled d-flex justify-content-between">
-                            <li class="text-muted text-right">Огноо: {{ \Carbon\Carbon::parse($items->create_at)->format('Y-m-d')}}</li>
+                            <li class="text-muted text-right">Огноо: {{$items->created_at}}</li>
                         </ul>
                         @if($items->status == 0)
                         <ul class="list-unstyled d-flex justify-content-between">

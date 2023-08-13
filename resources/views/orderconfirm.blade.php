@@ -1,5 +1,5 @@
 @extends('layout.common')
-@section('title', 'Холбоо барих')
+@section('title', 'Захиалга')
 @include('layout.header')
 @section('content')
  <!-- Modal -->

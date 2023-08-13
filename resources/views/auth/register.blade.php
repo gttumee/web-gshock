@@ -13,7 +13,7 @@
                 @csrf
             <div class="mb-md-5 mt-md-4 pb-5">
               <h2 class="fw-bold mb-2 text-uppercase">Бүртгүүлэх</h2>
-              <p class="fw-bold mb-2 text-uppercase">Манайд бүртгүүлсэн танд баярлалаа!</p>
+              <p class="fw-bold mb-2 text-uppercase">Манайд бүртгүүлсэнд танд баярлалаа!</p>
               <div class="form-outline form-white mb-4">
                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Нэр">
                     @error('name')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

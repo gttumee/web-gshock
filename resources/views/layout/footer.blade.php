@@ -6,19 +6,19 @@
         <div class="row">
 
             <div class="col-md-4 pt-5">
-                <h2 class="h2 text-white border-bottom pb-3 border-light logo">G-trade.mn</h2>
+                <h2 class="h2 text-white border-bottom pb-3 border-light logo"> {{config('const.domain')}}</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li>
                         <i class="fas fa-map-marker-alt fa-fw"></i>
-                        Япон улс Токио хот
+                        БЗД 5-хороо тарвалин хотхон 48д 60 тоот
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="tel:010-020-0340">77889171</a>
+                        <a class="text-decoration-none" href="tel:010-020-0340">77885171</a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
-                        <a class="text-decoration-none" href="mailto:info@company.com">info@g-trade.mn</a>
+                        <a class="text-decoration-none" href="mailto:info@company.com">info@g-shock.mn</a>
                     </li>
                 </ul>
             </div>
@@ -103,7 +103,7 @@
             <div class="row pt-2">
                 <div class="col-12">
                     <p class="text-left text-light">
-                        Copyright &copy; 2023 mgshock.com
+                        Copyright &copy; 2023 {{config('const.domain')}}
                     </p>
                 </div>
             </div>
