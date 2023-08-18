@@ -67,7 +67,7 @@
                                 <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
                                     <img src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png" width="125" height="120" style="display: block; border: 0px;" /><br>
                                     <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
-                                        {{ $name }} танд захиалга өгсөнд баярлалаа!
+                                        {{ $name }} Танд захиалга өгсөнд баярлалаа!
                                     </h2>
                                 </td>
                             </tr>
@@ -76,7 +76,6 @@
                                     <p style="font-size: 16px; font-weight: 400; line-height: 24px; color: #777777;">
                                         <p> Цагны модел: {{ $watchName }}</p> </br>
                                         <p> Захиалгын тоо:  {{$quanity."ш"}}</p> </br>
-                                        <p>Дансанд төлбөр төлөгдсөн тохиолдолд захиалга хийгдэх болно!</p> </br>
                                     </p>
                                 </td>
                             </tr>
@@ -146,7 +145,7 @@
                                                Дансны нэр
                                             </td>
                                             <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
-                                               Ганбол Түмэндэмбэрэл
+                                               Ганбол Анхтуяа
                                             </td>
                                         </tr>
                                         <tr>
@@ -187,7 +186,7 @@
                                     <table border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="border-radius: 5px;" bgcolor="#66b3b7">
-                                              <a href="https://www.nimo.mn/" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: black; padding: 15px 30px; border: 1px solid #F44336; display: block;">Сайт руу буцах</a>
+                                              <a href="https://g-shock.mn/" target="_blank" style="font-size: 18px; font-family: Open Sans, Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 5px; background-color: black; padding: 15px 30px; border: 1px solid #F44336; display: block;">Сайт руу буцах</a>
                                             </td>
                                         </tr>
                                     </table>
