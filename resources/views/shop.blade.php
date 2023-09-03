@@ -69,9 +69,11 @@
                                     @if ((\Carbon\Carbon::parse($item['releaseDate'])->toDateString() > \Carbon\Carbon::today()->subMonths(2)->toDateString()))
                                     <img class="img-fluid" src="./assets/img/new.png" alt="">
                                     @endif 
+                                    <small class="h6 m-2">gshock.casio.com</small>
                                     <img  class="card-img rounded-0 img-fluid hidezurag" src="{{config('const.image').$item['productAssetList']['0']['path']}}" >
                                 <div
                                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    
                                 </div>
                             </div>
                             <div class="card-body">

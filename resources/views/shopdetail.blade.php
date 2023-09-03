@@ -8,8 +8,8 @@
             <div class="row">
                 @foreach($shopDetailWatch as $item)    
                 <div class="col-lg-5 mt-5">
-                    
                     <div class="card mb-3">
+                        <small class="h6 m-2">gshock.casio.com</small>
                         <img class="card-img img-fluid" src="{{config('const.image').$item['productAssetList']['0']['path']}}" alt="Card image cap" id="product-detail">
                     </div>
                     <div class="row">
