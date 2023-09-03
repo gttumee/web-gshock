@@ -11,11 +11,11 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Батерейний төрлөөр
+                            Батарейны төрлөөр
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>  
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="{{route('shop',['battery=other'])}}">Батерей </a></li>
+                            <li><a class="text-decoration-none" href="{{route('shop',['battery=other'])}}">Батарей </a></li>
                             <li><a class="text-decoration-none" href="{{route('shop',['battery=solar'])}}">Нарны зай хураагуур</a></li>
                         </ul>
                     </li>
