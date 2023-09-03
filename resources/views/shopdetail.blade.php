@@ -154,10 +154,14 @@
                               <div class="mb-2">
                                 <button name='mybutton' class="btn btn-dark" id="{{$item['sku']}}" type="button">Like <i class="far fa-thumbs-up"></i></button>
                               </div>
+                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Захиалга</strong> болон бусад мэдээллийг доорх "Мессежээр холбогдох" товчийг дарж чатаар лавлана уу
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
                                 <div class="row pb-3">
                                     <ul class="navbar-nav ms-auto">
                                         <div class="col d-grid">                
-                                            <a  class="btn btn-outline-dark btn-lg" href="https://www.facebook.com/messages/t/100005391124533" target="blank">Мэссэжээр холбогдох</a>
+                                            <a href="https://www.facebook.com/profile.php?id=61550717050412" target="_blank" class="btn btn-outline-dark btn-lg">    Мэссэжээр холбогдох</a>
                                         </div>
                                     </ul>
                                 </div>
