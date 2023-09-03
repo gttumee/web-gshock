@@ -1,5 +1,5 @@
 @extends('layout.common')
-@section('title', 'Дэлгүүр')
+@section('title', 'G-shock')
 @include('layout.header')
 @section('content')
 <!-- Modal --> 
@@ -54,7 +54,7 @@
                     <form  action="{{ route('shop') }}" accept="get" enctype="application/x-www-form-urlencoded	" >
                         @csrf
                    <div class="input-group">
-                    <input type="search" class="form-control rounded" placeholder="хайх" aria-label="хайлт" aria-describedby="search-addon" name="search"/>
+                    <input type="search" class="form-control rounded" placeholder="хайх" aria-label="хайлт"  name="search" value="{{ old('search') }}" />
                     <button type="submit" class="btn btn-success btn-lg px-3"><i class="fas fa-search"></i></button>
                     </div>
                     </form>
@@ -91,7 +91,8 @@
                                             class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                     </li>
                                 </ul>
-                                <p class="text-center mb-0 fw-bold">{{number_format($item['listPrice']* $ratePrice+config('const.une'))}}₮</p>
+                              <p class="text-center mb-0 fw-bold">{{number_format($item['listPrice']* $ratePrice+config('const.une'))}}₮</p>
+                                <button name='mybutton' class="btn btn-dark" id="{{$item['sku']}}" type="button">Like <i class="far fa-thumbs-up"></i></button>
                             </div>
                         </div>
                     </div>
@@ -99,6 +100,38 @@
                 </div>
             </div>
         </div>
+        
     </div>
 @endsection
 @include('layout.footer')
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  $("button[name='mybutton']").click(function() {
+    var id = this.id;
+    $.ajax({
+      type: 'get',
+      url: 'like/'+id,
+      data: id,
+      headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+    })
+    .done(function (data) {
+        console.log(data);
+    })
+    .fail(function () {
+      console.log('fail'); 
+    });
+    var $this = $(this);
+    if ($this.hasClass('highlighted')) {
+      $this.removeClass('highlighted');
+      $this.text('Like');
+    } else {
+      $this.addClass('highlighted');
+      $this.text('Unlike');
+    }
+  });
+});
+</script>
+

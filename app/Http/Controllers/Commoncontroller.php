@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderMail;
 use App\Models\Contact;
+use App\Models\like;
 use App\Models\Productorder;
 use App\Models\Requesttable;
 use Illuminate\Support\Facades\Validator;
@@ -40,6 +41,7 @@ class Commoncontroller extends Controller
 
     //дэлгүүрийн лимт ангилал гарах хэсэг
     public function shop(Request $request){
+        // dd($request->all());
         $ratePrice =  $this->rate();
         $collection=$this->shock();
         $data = collect($this->shock())->sortByDesc('releaseDate')->values()->all();
@@ -314,5 +316,11 @@ class Commoncontroller extends Controller
     }
     public function login(){
         return view('login');
+    }
+
+    public function like($id){
+        $save = new like();
+        $save ->model = $id;
+        $save->save();
     }
 }
