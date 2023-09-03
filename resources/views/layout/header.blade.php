@@ -44,7 +44,6 @@
             <div class="collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 
             </div>
-            <a href="https://gshock.casio.com/jp/" class="text-white bg-dark" target="_blank">gshock.casio.com/jp/</a>
         </div>
     </nav>
 @endsection
