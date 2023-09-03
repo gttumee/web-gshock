@@ -142,10 +142,10 @@
                            @endif
                             <p class="h3 py-2">Жин: {{$item['weight']}} грам</p>
                             @if(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114) == 'solar')
-                            <p class="h3 py-2">Батерей: Нарны зай хураагуур</p>
+                            <p class="h3 py-2">Батарей: Нарны зай хураагуур</p>
                             <p class="h3 py-2">Цэнэг: Нарны зай хураагуур</p>
                             @elseif(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],111) == 'wireless_02')
-                            <p class="h3 py-2">Батерей: Нарны зай Type-A USB цэнэглэгч</p>
+                            <p class="h3 py-2">Батарей: Нарны зай Type-A USB цэнэглэгч</p>
                             <p class="h3 py-2">Цэнэг: Нарны зай Type-A USB цэнэглэгч</p>
                             @else
                             <p class="h3 py-2">Цэнэг: {{substr(substr($item['additionalAttributions']['batteryAndBatteryLife']['0'],114,),0,1)}} жил</p>
