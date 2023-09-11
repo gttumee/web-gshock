@@ -161,7 +161,7 @@
                                 <div class="row pb-3">
                                     <ul class="navbar-nav ms-auto">
                                         <div class="col d-grid">                
-                                            <a href="https://www.facebook.com/messages/t/100005391124533" target="_blank" class="btn btn-outline-dark btn-lg">    Мэссэжээр холбогдох</a>
+                                            <a href="http://m.me/denny.tu.5" target="_blank" class="btn btn-outline-dark btn-lg">    Мэссэжээр холбогдох</a>
                                         </div>
                                     </ul>
                                 </div>
